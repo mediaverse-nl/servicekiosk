@@ -17,17 +17,20 @@ Auth::routes();
 //    return view('welcome');
 //}])->name('home');
 
-//Route::get('/', ['uses' => 'HomeController@index'])->name('home');
+Route::get('/', ['uses' => 'HomeController@index'])->name('home');
 //Route::get('/home', ['uses' => 'HomeController@index'])->name('test3');
 
 
 //Route::group([], function () {
 //    Route::get('/admin', ['as' => 'home', 'uses' => 'HomeController@index'])->name('test');
 
-//    Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
-//        Route::get('/', ['as' => 'home', 'uses' => 'DashboardController'])->name('dashboard');
-//
-//    });
+    Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+        Route::get('/', ['as' => 'home', 'uses' => 'DashboardController'])->name('dashboard');
+        Route::group(['prefix' => 'client'], function () {
+            Route::get('/', ['uses' => 'ClientController@index'])->name('admin.client.index');
+            Route::get('/edit', ['uses' => 'ClientController@index'])->name('admin.client.edit');
+        });
+    });
 
 
 
@@ -44,5 +47,9 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'panel'], function () {
 
 
 Route::get('/panel', ['as' => 'home', 'uses' => 'HomeController@index'])->name('home');
+
+
+
+
 
 

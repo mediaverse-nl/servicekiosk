@@ -5,8 +5,18 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use Mollie;
+
 class ClientController extends Controller
 {
+    protected $mollie;
+
+    function __construct()
+    {
+        $this->mollie = Mollie::api();
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +24,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return 'asdasd';
+        return view('admin.client.index')->with('mollie', $this->mollie);
     }
 
     /**

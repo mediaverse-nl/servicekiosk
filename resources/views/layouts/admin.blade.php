@@ -12,11 +12,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/3.3.7+1/css/sb-admin-2.min.css" rel="stylesheet">
 
     <style>
-        body{
-            margin-top: 70px;
-        }
         /* Dropdown Button */
         .dropbtn {
             background-color: #4CAF50;
@@ -74,52 +73,34 @@
     </script>
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Project name</a>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li>
-                            <div class="dropdown">
-                                <a href="/about">
-                                    <button class="dropbtn">Producten</button>
-                                </a>
-                                <div class="dropdown-content">
-                                    <a href="#">indoor zuilen</a>
+<div id="wrapper">
 
-                                    <a href="#">Link 2</a>
-                                    <a href="#">Link 3</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li><a href="/about">Services</a></li>
-                        <li><a href="#about">Nieuws</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="./">Fixed top</a></li>
-                    </ul>
-                </div><!--/.nav-collapse -->
+    @include('layouts.admin-menu')
+
+    <div id="page-wrapper" style="min-height: 898px;">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">@yield('title')</h1>
             </div>
-        </nav>
-
-        <div class="container">
-            @yield('content')
+            <!-- /.col-lg-12 -->
         </div>
 
+        @yield('content')
+
     </div>
+    <!-- /#page-wrapper -->
+
+</div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    {{--<script src="http://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/3.3.7+1/js/sb-admin-2.min.js"></script>--}}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.0/metisMenu.min.js"></script>
+
+    <script>
+        $(function() {
+            $('#side-menu').metisMenu();
+        });
+    </script>
 </body>
 </html>

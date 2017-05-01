@@ -14,9 +14,6 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <style>
-        body{
-            margin-top: 70px;
-        }
         /* Dropdown Button */
         .dropbtn {
             background-color: #4CAF50;
@@ -113,10 +110,7 @@
             </div>
         </nav>
 
-        <div class="container">
-            @yield('content')
-        </div>
-
+        @yield('content')
     </div>
 
     <!-- Scripts -->
