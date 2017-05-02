@@ -28,7 +28,7 @@ Route::get('/', ['uses' => 'HomeController@index'])->name('home');
         Route::get('/', ['as' => 'home', 'uses' => 'DashboardController'])->name('dashboard');
         Route::group(['prefix' => 'client'], function () {
             Route::get('/', ['uses' => 'ClientController@index'])->name('admin.client.index');
-            Route::get('/edit', ['uses' => 'ClientController@index'])->name('admin.client.edit');
+            Route::get('/edit/{id}', ['uses' => 'ClientController@edit'])->name('admin.client.edit');
         });
     });
 
