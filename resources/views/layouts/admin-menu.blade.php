@@ -22,8 +22,8 @@
                         <div>
                             <strong>John Smith</strong>
                             <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
+                                <em>Yesterday</em>
+                            </span>
                         </div>
                         <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
                     </a>
@@ -236,16 +236,16 @@
                     {{--<!-- /input-group -->--}}
                 {{--</li>--}}
                 <li>
-                    <a href="index.html" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                    <a href="{{route('admin.dashboard')}}" class="{{ Request::is('admin/dashboard') ? 'active' : null }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
-                <li>
+                <li class="{{ Request::is('admin/client*') ? 'active' : null }}" >
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Clients<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
+                    <ul class="nav nav-second-level collapse {{ Request::is('admin/client') ? 'in' : null }}">
                         <li>
-                            <a href="{{route('admin.client.index')}}">All Clients</a>
+                            <a href="{{route('admin.client.index')}}" class="{{ Request::is('admin/client') ? 'active' : null }}">All Clients</a>
                         </li>
                         <li>
-                            <a href="morris.html">New Client </a>
+                            <a href="{{route('admin.client.create')}}" class="{{ Request::is('admin/client/create') ? 'active' : null }}">New Client </a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->

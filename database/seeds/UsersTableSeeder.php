@@ -15,20 +15,14 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name' => 'oollhhaa',
-            'voornaam' => 'deveron',
-            'achternaam' => 'reniers',
-            'geslacht' => 'Man',
-            'leeftijd' => Carbon::now(),
-            'adress' => 'pietercoeckestraat 12',
-            'zipcode' => '5643 VK',
-            'city' => 'Eindhoven',
-            'companyname' => 'Mediaverse',
-            'companyname' => 'Mediaverse',
-            'status' => 'Online',
-            'telefoon' => '06 53779761',
+            'firstname' => 'deveron',
+            'lastname' => 'reniers',
             'email' => 'def-lol-lol@hotmail.com',
+            'gender' => 'Man',
+            'birthdate' => Carbon::createFromDate(1993, 2, 9),
+            'status' => 'Online',
+            'phonenumber' => '06 53779761',
             'password' => bcrypt('admin'),
-            'adminstatus' => 1,
         ]);
     }
 }

@@ -24,12 +24,24 @@ Route::get('/', ['uses' => 'HomeController@index'])->name('home');
 //Route::group([], function () {
 //    Route::get('/admin', ['as' => 'home', 'uses' => 'HomeController@index'])->name('test');
 
-    Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
-        Route::get('/', ['as' => 'home', 'uses' => 'DashboardController'])->name('dashboard');
-        Route::group(['prefix' => 'client'], function () {
-            Route::get('/', ['uses' => 'ClientController@index'])->name('admin.client.index');
-            Route::get('/edit/{id}', ['uses' => 'ClientController@edit'])->name('admin.client.edit');
+    Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
+        Route::get('/', ['uses' => 'DashboardController'])->name('dashboard');
+        Route::group(['prefix' => 'client', 'as' => 'client.'], function () {
+            Route::get('/', ['uses' => 'ClientController@index'])->name('index');
+            Route::get('/create', ['uses' => 'ClientController@create'])->name('create');
+            Route::get('/edit/{id}', ['uses' => 'ClientController@edit'])->name('edit');
+            Route::post('/store', ['uses' => 'ClientController@store'])->name('store');
+            Route::patch('/update/{id}', ['uses' => 'ClientController@update'])->name('update');
+            Route::delete('/delete/{id}', ['uses' => 'ClientController@destroy'])->name('delete');
         });
+//        Route::group(['prefix' => 'client', 'as' => 'client.'], function () {
+//            Route::get('/', ['uses' => 'ClientController@index'])->name('index');
+//            Route::get('/create', ['uses' => 'ClientController@create'])->name('create');
+//            Route::get('/edit/{id}', ['uses' => 'ClientController@edit'])->name('edit');
+//            Route::post('/store', ['uses' => 'ClientController@store'])->name('store');
+//            Route::patch('/update/{id}', ['uses' => 'ClientController@update'])->name('update');
+//            Route::delete('/delete/{id}', ['uses' => 'ClientController@destroy'])->name('delete');
+//        });
     });
 
 

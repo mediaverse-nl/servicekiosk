@@ -63,6 +63,11 @@
         .dropdown:hover .dropbtn {
             background-color: #3e8e41;
         }
+
+        .panel-default{
+            background-color: #F8F8F8;
+            border-radius: 0px;
+        }
     </style>
 
     <!-- Scripts -->

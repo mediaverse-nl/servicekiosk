@@ -27,7 +27,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return view('admin.client.index')->with('mollie', $this->mollie);
+        return view('admin.client.index')->with('clients', $this->client->get());
     }
 
     /**
@@ -37,7 +37,15 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.client.create');
+
+//        $subscription = $this->mollie->customers_subscriptions->withParentId("cst_stTC2WHAuS")->create([
+//            "amount"      => 25.00,
+//            "times"       => 4,
+//            "interval"    => "3 months",
+//            "description" => "Quarterly payment",
+//            "webhookUrl"  => "https://example.org/payments/webhook",
+//        ]);
     }
 
     /**
