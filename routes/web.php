@@ -17,9 +17,20 @@ Auth::routes();
 //    return view('welcome');
 //}])->name('home');
 
+Route::get('/downloads', ['uses' => 'DownloadController@index'])->name('downloads');
+
+Route::group(['prefix' => 'api/v1', 'as' => 'admin.'], function () {
+    Route::get('/loodbutton/{id}', ['uses' => 'ApiController@loadButton'])->name('loodbutton.show');
+});
+
+
+
+Route::get('/downloads', ['uses' => 'DownloadController@index'])->name('downloads');
+
+
+
 Route::get('/', ['uses' => 'HomeController@index'])->name('home');
 //Route::get('/home', ['uses' => 'HomeController@index'])->name('test3');
-
 
 //Route::group([], function () {
 //    Route::get('/admin', ['as' => 'home', 'uses' => 'HomeController@index'])->name('test');

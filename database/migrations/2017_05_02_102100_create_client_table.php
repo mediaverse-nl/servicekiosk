@@ -17,14 +17,14 @@ class CreateClientTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('client_id')->nullable();
-            $table->string('adress')->nullable();
-            $table->string('zipcode')->nullable();
-            $table->string('city')->nullable();
-            $table->string('companyname')->nullable();
-            $table->string('kvk')->nullable();
-            $table->string('vatnumber')->nullable();
-            $table->string('status')->nullable();
+            $table->string('customerId', 20);
+            $table->string('adress', 120);
+            $table->string('zipcode', 6);
+            $table->string('city', 80);
+            $table->string('companyname', 100);
+            $table->string('kvk', 30);
+            $table->string('vatnumber',30);
+            $table->enum('status', ['Online', 'Offline', 'Non'])->nullable();
             $table->timestamps();
         });
     }
