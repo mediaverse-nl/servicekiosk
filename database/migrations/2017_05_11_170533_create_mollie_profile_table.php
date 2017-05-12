@@ -17,7 +17,10 @@ class CreateMollieProfileTable extends Migration
             $table->increments('id');
             $table->integer('client_id')->unsigned();
             $table->foreign('client_id')->references('id')->on('client');
+            $table->decimal('amount', 9, 2);
+            $table->string('description', 100);
             $table->enum('recurring_type', ['null', 'first', 'recurring'])->nullable();
+            $table->enum('status', ['belfius', 'creditcard', 'ideal', 'kbc', 'mistercash', 'sofort'])->nullable();
             $table->timestamps();
         });
     }

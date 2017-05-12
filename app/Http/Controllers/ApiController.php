@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class ApiController extends Controller
 {
 
-    protected $middleware;
+//    protected $middleware;
 
 
     public function __construct()
@@ -17,7 +17,26 @@ class ApiController extends Controller
 
     public function loadButton()
     {
+        try{
+            $asfaf;
 
+            $status  = 200;
+            $response = [
+                'status' => 200,
+                'response' => [
+
+                ],
+            ];
+
+        }catch (Exception $e){
+            $status = 404;
+            $response = [
+                "error" => $e,
+                'status' => 200,
+            ];
+        }finally{
+            return response()->json($response, $status);
+        }
     }
 
 

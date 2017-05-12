@@ -15,11 +15,8 @@ class ApiToken
      */
     public function handle($request, Closure $next)
     {
-        if ($request->token == auth()->user()->api_token){
-
-        }
-
-
-        return $next($request);
+//        if ($request->token == auth()->user()->api_token){
+            return $next($request);
+//        }
     }
 }

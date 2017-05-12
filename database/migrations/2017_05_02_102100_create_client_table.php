@@ -24,7 +24,6 @@ class CreateClientTable extends Migration
             $table->string('companyname', 100);
             $table->string('kvk', 30);
             $table->string('vatnumber',30);
-            $table->enum('status', ['Online', 'Offline', 'Non'])->nullable();
             $table->timestamps();
         });
     }

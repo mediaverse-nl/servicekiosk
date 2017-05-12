@@ -26,4 +26,17 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function console()
+    {
+        return $this->hasMany('App\Console');
+    }
+
+
+    public static function geslacht(){
+        return collect([
+            'Man' => 'Man',
+            'Vrouw' => 'Vrouw',
+        ]);
+    }
 }

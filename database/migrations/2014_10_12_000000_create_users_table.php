@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->enum('gender', ['Man', 'vrouw'])->nullable();
             $table->date('birthdate')->nullable();
             $table->string('phonenumber')->nullable();
+            $table->string('api_token', 30)->nullable();
             $table->enum('status', ['Online', 'Offline', 'Banned'])->nullable();
             $table->rememberToken();
             $table->timestamps();
