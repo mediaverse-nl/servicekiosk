@@ -17,6 +17,13 @@ Auth::routes();
 //    return view('welcome');
 //}])->name('home');
 
+Route::get('/helper', ['uses' => function(){
+    $token = new Token();
+
+    return $token;
+}]);
+
+
 Route::get('/downloads', ['uses' => 'DownloadController@index'])->name('downloads');
 
 Route::group(['prefix' => 'api/v1', 'as' => 'admin.'], function () {

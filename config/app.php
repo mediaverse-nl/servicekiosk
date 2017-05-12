@@ -181,6 +181,7 @@ return [
 
         Barryvdh\Debugbar\ServiceProvider::class,
 
+        App\Providers\HelperServiceProvider::class,
 
     ],
 
