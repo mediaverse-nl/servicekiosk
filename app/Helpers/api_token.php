@@ -16,7 +16,7 @@ class Token {
      * @param string $prefix
      * @param bool $entropy
      */
-    public function __construct($prefix = 'token_', $limit = 20)
+    public function __construct($prefix = 'token_', $limit = 54)
     {
         $this->token = $prefix.str_random($limit);
     }

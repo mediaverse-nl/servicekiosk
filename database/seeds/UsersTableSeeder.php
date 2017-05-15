@@ -22,6 +22,20 @@ class UsersTableSeeder extends Seeder
             'birthdate' => Carbon::createFromDate(1993, 2, 9),
             'status' => 'Online',
             'phonenumber' => '06 53779761',
+            'api_token' => new Token(),
+            'password' => bcrypt('admin'),
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'oollhhaa2',
+            'firstname' => 'test',
+            'lastname' => 'test',
+            'email' => 'deveron-test@hotmail.com',
+            'gender' => 'vrouw',
+            'birthdate' => Carbon::createFromDate(1993, 2, 9),
+            'status' => 'Online',
+            'phonenumber' => '06 54646468',
+            'api_token' => new Token(),
             'password' => bcrypt('admin'),
         ]);
     }

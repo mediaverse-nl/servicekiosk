@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class ApiToken
 {
@@ -15,8 +16,15 @@ class ApiToken
      */
     public function handle($request, Closure $next)
     {
-//        if ($request->token == auth()->user()->api_token){
+//        token_2t70aWnMd2QQqmxGwX20rGEZ2BXvbQEOEitJQiNAio8JHxlUgHSkjM
+
+        if (Auth::guard('api')->user()) {
             return $next($request);
-//        }
+        }
+
+        return response()->json([
+            'status' => '401',
+            'error' => 'Unauthenticated.',
+        ], 401);
     }
 }
