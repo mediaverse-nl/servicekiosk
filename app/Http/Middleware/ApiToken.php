@@ -18,13 +18,13 @@ class ApiToken
     {
 //        token_2t70aWnMd2QQqmxGwX20rGEZ2BXvbQEOEitJQiNAio8JHxlUgHSkjM
 
-        if (Auth::guard('api')->user()) {
+//        if (Auth::guard('api')->user()) {
             return $next($request);
-        }
+//        }
 
-        return response()->json([
-            'status' => '401',
-            'error' => 'Unauthenticated.',
-        ], 401);
+//        return response()->json([
+//            'status' => '401',
+//            'error' => 'Unauthenticated.',
+//        ], 401);
     }
 }

@@ -48,12 +48,14 @@ class ApiController extends Controller
             $response = [
                 'status' => 200,
                 'response' => [
+
+                    'status' => true,
                     'user' => $this->api->user(),
                 ],
             ];
             return response()->json($response);
         }else{
-            return response()->json([]);
+            return response()->json(['error' => 'invalid credentials']);
         }
 
 //        return response()->json($response);

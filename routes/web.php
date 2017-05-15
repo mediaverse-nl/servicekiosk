@@ -29,11 +29,11 @@ Route::get('/downloads', ['uses' => 'DownloadController@index'])->name('download
 Route::group(['prefix' => 'api/v1', 'as' => 'api.', 'middleware' => 'token'], function () {
 //Route::group(['prefix' => 'api/v1', 'as' => 'api.', 'middleware' => 'auth:api'], function () {
     Route::get('/loodbutton/{id?}', ['uses' => 'ApiController@loadButton'])->name('loodbutton.show');
-    Route::post('/login', ['uses' => 'ApiController@authenticate'])->name('loodbutton.show');
+    Route::post('/login', ['uses' => 'ApiController@authenticate'])->name('login');
 });
 
 
-Route::get('/downloads', ['uses' => 'DownloadController@index'])->name('downloads');
+//Route::get('/downloads', ['uses' => 'DownloadController@index'])->name('downloads');
 
 
 
