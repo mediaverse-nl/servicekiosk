@@ -24,7 +24,7 @@ class ApiToken
 
 //        return response()->json([
 //            'status' => '401',
-//            'error' => 'Unauthenticated.',
+//            'error' => 'Unauthenticated token.',
 //        ], 401);
     }
 }

@@ -183,6 +183,9 @@ return [
 
         App\Providers\HelperServiceProvider::class,
 
+        Laravel\Passport\PassportServiceProvider::class,
+
+
     ],
 
     /*

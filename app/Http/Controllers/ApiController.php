@@ -21,7 +21,6 @@ class ApiController extends Controller
 
     public function loadButton()
     {
-        $status  = 200;
         $response = [
             'status' => 200,
             'response' => [
