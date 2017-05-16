@@ -15,6 +15,6 @@ class PanelController extends Controller
      */
     public function __invoke()
     {
-        return 'asdasdsad';
+        return view('panel.index');
     }
 }

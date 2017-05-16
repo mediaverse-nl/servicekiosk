@@ -84,30 +84,36 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Project name</a>
+                    <a class="navbar-brand" href="{{route('home')}}">Project name</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
+                        <li class="active"><a href="{{route('home')}}">Home</a></li>
                         <li>
                             <div class="dropdown">
-                                <a href="/about">
+                                <a href="{{route('product.index')}}">
                                     <button class="dropbtn">Producten</button>
                                 </a>
                                 <div class="dropdown-content">
-                                    <a href="#">indoor zuilen</a>
+                                    <a href="{{route('product.indoorzuil')}}">indoor zuilen</a>
 
-                                    <a href="#">Link 2</a>
-                                    <a href="#">Link 3</a>
+                                    {{--<a href="#">Link 2</a>--}}
+                                    {{--<a href="#">Link 3</a>--}}
                                 </div>
                             </div>
                         </li>
-                        <li><a href="/about">Services</a></li>
-                        <li><a href="#about">Nieuws</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="{{route('service.index')}}">Services</a></li>
+                        <li><a href="{{route('nieuws.index')}}">Nieuws</a></li>
+                        <li><a href="{{route('contact.index')}}">Contact</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="./">Fixed top</a></li>
+
+                        @if (Auth::check())
+                            <li class="active"><a href="{{route('panel')}}">panel</a></li>
+                            <li class="active"><a href="{{route('logout')}}">Uitloggen</a></li>
+                        @else
+                            <li class="active"><a href="{{route('login')}}">Inloggen</a></li>
+                        @endif
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>

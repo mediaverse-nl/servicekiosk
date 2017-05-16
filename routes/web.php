@@ -38,6 +38,15 @@ Route::group(['prefix' => 'api/v1', 'as' => 'api.', 'middleware' => 'token'], fu
 
 
 Route::get('/', ['uses' => 'HomeController@index'])->name('home');
+Route::get('/home', ['uses' => 'HomeController@index']);
+
+Route::get('/producten', ['uses' => 'ProductController@index'])->name('product.index');
+Route::get('/producten/indoorzuil', ['uses' => 'ProductController@indoorzuil'])->name('product.indoorzuil');
+Route::get('/services', ['uses' => 'ServiceController@index'])->name('service.index');
+Route::get('/nieuws', ['uses' => 'NewsController@index'])->name('nieuws.index');
+Route::get('/nieuws/{title}-{id}', ['uses' => 'NewsController@show'])->name('nieuws.show');
+Route::get('/contact', ['uses' => 'ContactController@index'])->name('contact.index');
+Route::post('/contact', ['uses' => 'ContactController@store'])->name('contact.store');
 //Route::get('/home', ['uses' => 'HomeController@index'])->name('test3');
 
 //Route::group([], function () {
@@ -77,7 +86,7 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'panel'], function () {
 
 
 
-Route::get('/panel', ['as' => 'home', 'uses' => 'HomeController@index'])->name('home');
+//Route::get('/panel', ['as' => 'home', 'uses' => 'HomeController@index'])->name('home');
 
 
 
