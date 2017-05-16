@@ -20,11 +20,12 @@ class ApiToken
 
 //        if (Auth::guard('api')->user()) {
             return $next($request);
+//        }else{
+//
+//            return response()->json([
+//                'status' => '401',
+//                'error' => 'Unauthenticated token.',
+//            ], 401);
 //        }
-
-//        return response()->json([
-//            'status' => '401',
-//            'error' => 'Unauthenticated token.',
-//        ], 401);
     }
 }

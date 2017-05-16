@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -88,7 +88,7 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="{{route('home')}}">Home</a></li>
+                        <li class="{{ (Request::is('/') || Request::is('home')) ? 'active' : null }}"><a href="{{route('home')}}">Home</a></li>
                         <li>
                             <div class="dropdown">
                                 <a href="{{route('product.index')}}">
@@ -102,17 +102,17 @@
                                 </div>
                             </div>
                         </li>
-                        <li><a href="{{route('service.index')}}">Services</a></li>
-                        <li><a href="{{route('nieuws.index')}}">Nieuws</a></li>
-                        <li><a href="{{route('contact.index')}}">Contact</a></li>
+                        <li class="{{ Request::is('services') ? 'active' : null }}"><a  href="{{route('service.index')}}">Services</a></li>
+                        <li class="{{ Request::is('nieuws' ) ? 'active' : null }}"><a href="{{route('nieuws.index')}}">Nieuws</a></li>
+                        <li class="{{ Request::is('contact') ? 'active' : null }}"><a href="{{route('contact.index')}}">Contact</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
 
                         @if (Auth::check())
-                            <li class="active"><a href="{{route('panel')}}">panel</a></li>
-                            <li class="active"><a href="{{route('logout')}}">Uitloggen</a></li>
+                            <li class="{{ Request::is('panel') ? 'active' : null }}"><a href="{{route('panel')}}">panel</a></li>
+                            <li><a href="{{route('logout')}}">Uitloggen</a></li>
                         @else
-                            <li class="active"><a href="{{route('login')}}">Inloggen</a></li>
+                            <li class="{{ Request::is('login') ? 'active' : null }}"><a href="{{route('login')}}">Inloggen</a></li>
                         @endif
                     </ul>
                 </div><!--/.nav-collapse -->
@@ -120,6 +120,9 @@
         </nav>
 
         <div class="container">
+
+            <h1>@yield('title')</h1>
+
             @yield('content')
         </div>
 
