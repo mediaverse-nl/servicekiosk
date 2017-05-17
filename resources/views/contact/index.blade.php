@@ -5,16 +5,16 @@
 @section('content')
 
     <div class="container">
-
-        <div class="col-lg-6">
-            <div class="slider-contact">
-                <div>your content</div>
-                <div>your content</div>
-                <div>your content</div>
-            </div>
-        </div>
-
         <div class="row">
+            <div class="col-lg-6">
+                <div class="slider-contact">
+                    <div>your content</div>
+                    <div>your content</div>
+                    <div>your content</div>
+                </div>
+            </div>
+
+
             <div class="col-lg-4">
                 aasd
             </div>
@@ -32,9 +32,24 @@
     <style>
         .slider-contact{
             height: 200px !important;
+            background-color: #2ab27b;
+            /*z-index: 1;*/
         }
         .slider-contact > div {
             height: 200px;
+        }
+        .slick-next{
+            right: 30px;
+        }
+        .slick-prev{
+            left: 10px;
+        }
+        .slick-prev:before, .slick-next:before{
+            color: black;
+            font-size: 40px;
+        }
+        .slick-arrow{
+            z-index: 999 !important;
         }
     </style>
 @endpush
@@ -44,6 +59,7 @@
     <script>
         $(document).ready(function(){
             $('.slider-contact').slick();
+//            $('.slider-contact').focus();
         });
     </script>
 @endpush
