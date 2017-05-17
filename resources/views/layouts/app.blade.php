@@ -109,7 +109,7 @@
                     <ul class="nav navbar-nav navbar-right">
 
                         @if (Auth::check())
-                            <li class="{{ Request::is('panel') ? 'active' : null }}"><a href="{{route('panel')}}">panel</a></li>
+                            <li class="{{ Request::is('panel') ? 'active' : null }}"><a href="{{route('admin.dashboard')}}">panel</a></li>
                             <li><a href="{{route('logout')}}">Uitloggen</a></li>
                         @else
                             <li class="{{ Request::is('login') ? 'active' : null }}"><a href="{{route('login')}}">Inloggen</a></li>
