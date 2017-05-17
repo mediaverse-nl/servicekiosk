@@ -24,4 +24,13 @@ class Ticket extends Model
     {
         return $this->hasMany('App\Ticket', 'ticket_id');
     }
+
+    public static function status()
+    {
+        return collect([
+            'answered' => 'answered',
+            'pending' => 'pending',
+            'completed' => 'completed',
+        ]);
+    }
 }

@@ -60,4 +60,12 @@ class User extends Authenticatable
             'Vrouw' => 'Vrouw',
         ]);
     }
+
+    public static function status(){
+        return collect([
+            'Online' => 'Online',
+            'Offline' => 'Offline',
+            'Banned' => 'Banned',
+        ]);
+    }
 }

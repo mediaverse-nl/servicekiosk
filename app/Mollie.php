@@ -14,4 +14,16 @@ class Mollie extends Model
     {
         return $this->hasMany('App\Client', 'client_id');
     }
+
+    public static function status()
+    {
+        return collect([
+            'belfius' => 'belfius',
+            'creditcard' => 'creditcard',
+            'ideal' => 'ideal',
+            'kbc' => 'kbc',
+            'mistercash' => 'mistercash',
+            'sofort' => 'sofort',
+        ]);
+    }
 }

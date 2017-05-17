@@ -27,4 +27,13 @@ class Button extends Model
         return $this->hasMany('App\Button', 'button_id');
     }
 
+    public static function buttonType()
+    {
+        return collect([
+            'website' => 'website',
+            'category' => 'category',
+            'non' => 'non',
+        ]);
+    }
+
 }

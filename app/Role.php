@@ -14,4 +14,13 @@ class Role extends Model
     {
         return $this->hasMany('App\UserRole', 'role_id');
     }
+
+
+    public static function accountType()
+    {
+        return collect([
+            'admin' => 'admin',
+            'client' => 'client',
+        ]);
+    }
 }

@@ -8,9 +8,10 @@ class Console extends Model
 {
     protected $table = 'console';
 
-    protected $timestamps = true;
+    public $timestamps = true;
 
-    protected $guarded = [];
+    protected $guarded = ['imei'];
+
 
     public function button()
     {
