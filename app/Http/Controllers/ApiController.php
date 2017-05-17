@@ -15,8 +15,8 @@ class ApiController extends Controller
 
     public function __construct()
     {
-//        $this->middleware('auth');
-//        $this->api = Auth::guard('api')->except('authenticate');
+        $this->middleware('token')->except('authenticate');
+        $this->api = Auth::guard('api');
     }
 
     public function loadButton()
@@ -24,11 +24,16 @@ class ApiController extends Controller
         $response = [
             'status' => 200,
             'response' => [
-                'user' => $this->api->user(),
+                'user' => '',
             ],
         ];
 
-        return response()->json($response, $status);
+        return response()->json($response, 200,[
+            'headers' => [
+                'Accept' => 'application/json',
+                'Authorization' => 'Bearer token_DXZTvekkKnHMBbfCnrZvgi6YpdFPZFTHiBBsYSy4MVGbx9pkKQV2N',
+            ],
+        ]);
     }
 
     public function authenticate(Request $request)
@@ -53,7 +58,7 @@ class ApiController extends Controller
             $response = [
                 'response' => [
                     'logged' => true,
-                    'user' => $this->api->user(),
+                    'user' => Auth()->user(),
                 ],
             ];
             return response()->json($response);

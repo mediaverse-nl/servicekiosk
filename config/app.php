@@ -167,7 +167,7 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
-
+        Laravel\Passport\PassportServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -182,9 +182,6 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
 
         App\Providers\HelperServiceProvider::class,
-
-        Laravel\Passport\PassportServiceProvider::class,
-
 
     ],
 

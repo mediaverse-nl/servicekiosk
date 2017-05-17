@@ -27,11 +27,15 @@ Route::get('/helper', ['uses' => function(){
 Route::get('/downloads', ['uses' => 'DownloadController@index'])->name('downloads');
 
 //Route::group(['prefix' => 'api/v1', 'as' => 'api.', 'middleware' => 'token'], function () {
-//Route::group(['prefix' => 'api/v1', 'as' => 'api.', 'middleware' => 'auth:api'], function () {
+Route::group(['prefix' => 'api/v1', 'as' => 'api.'], function () {
     Route::get('/loodbutton/{id?}', ['uses' => 'ApiController@loadButton'])->name('loodbutton.show');
     Route::post('/login', ['uses' => 'ApiController@authenticate'])->name('login');
-//});
+});
 
+//'headers' => [
+//    'Accept' => 'application/json',
+//    'Authorization' => 'Bearer '.$accessToken,
+//],
 
 //Route::get('/downloads', ['uses' => 'DownloadController@index'])->name('downloads');
 
