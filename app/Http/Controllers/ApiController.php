@@ -19,21 +19,32 @@ class ApiController extends Controller
         $this->api = Auth::guard('api');
     }
 
-    public function loadButton()
+    public function loadButton(Request $request)
     {
+
+
+
+
         $response = [
             'status' => 200,
             'response' => [
-                'user' => '',
+                'user' => $this->api->user(),
+                'erer' => $request->all(),
             ],
         ];
 
-        return response()->json($response, 200,[
-            'headers' => [
-                'Accept' => 'application/json',
-                'Authorization' => 'Bearer token_DXZTvekkKnHMBbfCnrZvgi6YpdFPZFTHiBBsYSy4MVGbx9pkKQV2N',
-            ],
-        ]);
+
+
+
+        return response()->json($response, 200
+//            ,
+//            [
+//            'headers' => [
+//                'Accept' => 'application/json',
+//                'Authorization' => 'Bearer token_DXZTvekkKnHMBbfCnrZvgi6YpdFPZFTHiBBsYSy4MVGbx9pkKQV2N',
+//            ],
+//        ]
+        );
     }
 
     public function authenticate(Request $request)
@@ -63,7 +74,7 @@ class ApiController extends Controller
             ];
             return response()->json($response);
         }else{
-            return response()->json(['error' => 'invalid credentials']);
+            return response()->json(['error' => ['message' => 'invalid credentials']]);
         }
     }
 

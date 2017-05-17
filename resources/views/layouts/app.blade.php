@@ -120,11 +120,11 @@
         </nav>
 
         <div class="container">
-
             <h1>@yield('title')</h1>
-
-            @yield('content')
         </div>
+
+        @yield('content')
+
 
     </div>
 
