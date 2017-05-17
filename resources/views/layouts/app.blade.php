@@ -66,6 +66,8 @@
         }
     </style>
 
+    @stack('css')
+
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
@@ -130,5 +132,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+
+    @stack('js')
+
 </body>
 </html>
