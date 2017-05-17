@@ -30,7 +30,27 @@ class User extends Authenticatable
 
     public function console()
     {
-        return $this->hasMany('App\Console');
+        return $this->hasMany('App\Console', 'user_id');
+    }
+
+    public function userRole()
+    {
+        return $this->hasMany('App\UserRole', 'user_id');
+    }
+
+    public function password()
+    {
+        return $this->hasOne('App\Password');
+    }
+
+    public function client()
+    {
+        return $this->hasMany('App\Client', 'user_id');
+    }
+
+    public function ticket()
+    {
+        return $this->hasMany('App\Ticket', 'user_id');
     }
 
 
