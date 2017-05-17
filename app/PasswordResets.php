@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Password extends Model
+class PasswordResets extends Model
 {
     protected $table = 'password_resets';
 
