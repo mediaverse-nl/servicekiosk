@@ -30,13 +30,13 @@
     <div id="map" style="width: 100%; height: 250px;"></div>
     <script>
         function initMap() {
-            var uluru = {lat: -25.363, lng: 131.044};
+            var uluru = {lat: 51.446512, lng: 5.522474};
             var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 4,
-                draggable: false,
-                zoomControl: false,
-                scrollWheel: false,
-                disableDoubleClickZoom: true,
+//                zoom: 4,
+//                draggable: false,
+//                zoomControl: false,
+//                scrollWheel: false,
+//                disableDoubleClickZoom: true,
                 center: uluru
             });
             var marker = new google.maps.Marker({

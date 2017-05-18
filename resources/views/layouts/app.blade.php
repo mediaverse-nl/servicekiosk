@@ -135,9 +135,6 @@
                                 </a>
                                 <div class="dropdown-content">
                                     <a href="{{route('product.indoorzuil')}}">indoor zuilen</a>
-
-                                    {{--<a href="#">Link 2</a>--}}
-                                    {{--<a href="#">Link 3</a>--}}
                                 </div>
                             </div>
                         </li>
@@ -148,7 +145,7 @@
                     <ul class="nav navbar-nav navbar-right">
 
                         @if (Auth::check())
-                            <li class="{{ Request::is('panel') ? 'active' : null }}"><a href="{{route('admin.dashboard')}}">panel</a></li>
+                            <li class="{{ Request::is('panel') ? 'active' : null }}"><a href="{{route('panel')}}">Panel</a></li>
                             <li><a href="{{route('logout')}}">Uitloggen</a></li>
                         @else
                             <li class="{{ Request::is('login') ? 'active' : null }}"><a href="{{route('login')}}">Inloggen</a></li>
