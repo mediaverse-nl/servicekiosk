@@ -7,8 +7,8 @@
     <div class="slider-banner">
         <div>
             <img src="https://dummyimage.com/2000x400/000000/0011ff">
-
-        </div><div>
+        </div>
+        <div>
             <img src="https://dummyimage.com/2000x400/000000/0011ff">
         </div>
     </div>
@@ -23,6 +23,7 @@
 
         </div>
     </div>
+
 @endsection
 
 @push('css')

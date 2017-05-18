@@ -1,16 +1,24 @@
 @extends('layouts.panel')
 
-@section('title', '')
+@section('title', 'asdasdad')
 
 @section('content')
 
     <div class="container">
         <div class="row">
             <div class="col-sm-3">
-asdasd
+                <div class="list-group">
+                    <a href="#" class="list-group-item active">Systemen</a>
+                    <a href="#" class="list-group-item">Account</a>
+                    <a href="#" class="list-group-item">Facturering</a>
+                    <a href="#" class="list-group-item">Tickets</a>
+                </div>
             </div>
             <div class="col-sm-9">
-asdasd
+                <div class="thumbnail">
+                    asdasdasdasdasdasdasdasdasdasd
+                </div>
+
             </div>
         </div>
     </div>
