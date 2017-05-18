@@ -14,9 +14,18 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <style>
-        body{
-            margin-top: 70px;
+        html {
+            position: relative;
+            min-height: 100%;
         }
+
+        body{
+            margin: 51px 0 0px;
+            /* bottom = footer height */
+            /*padding: 25px;*/
+            /*height: 700px;*/
+        }
+
         /* Dropdown Button */
         .dropbtn {
             background-color: #4CAF50;
@@ -64,6 +73,33 @@
         .dropdown:hover .dropbtn {
             background-color: #3e8e41;
         }
+
+        /*#app {*/
+            /*min-height: 100%;*/
+            /*height: auto;*/
+            /*!* Negative indent footer by its height *!*/
+            /*margin: 0 auto -250px;*/
+            /*!* Pad bottom by footer height *!*/
+            /*padding: 0 0 60px;*/
+        /*}*/
+        /*#main {*/
+            /*overflow:auto;*/
+            /*margin-top: 150px;*/
+            /*padding-bottom: 300px; !* this needs to be bigger than footer height*!*/
+        /*}*/
+        .footer {
+            /*height: 250px;*/
+            /*background-color: #f5f5f5;*/
+
+            background-color: orange;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 250px;
+            width: 100%;
+            overflow:hidden;
+        }
+
     </style>
 
     @stack('css')
@@ -77,6 +113,7 @@
 </head>
 <body>
     <div id="app">
+
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -121,12 +158,64 @@
             </div>
         </nav>
 
-        <div class="container">
-            <h1>@yield('title')</h1>
+        <div id="main">
+            <div class="container" >
+                <h1>@yield('title')</h1>
+            </div>
+
+            @yield('content')
+
         </div>
 
-        @yield('content')
+    </div>
 
+    <div class="footer navbar-fixed-bottom">
+        <div class="container">
+            <div class="col-lg-5">
+                <ul class="bv-info">
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/voorwaarden">Algemene voorwaarden</a></li>
+                    <li><a href="/privacy">Privacy Verklaring</a></li>
+                    <li><a href="/cookies">Cookies</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <ul class="bv-info">
+                    <li>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <a href="https://goo.gl/maps/FZyJ4iZEkoT2" target="_blank">
+                            <span>Daalakkersweg 2 <br> 5641 JA Eindhoven</span>
+                        </a>
+                    </li>
+                    <li>
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                        <a href="mailto:info@servicekiosk.nl/">
+                            <span>info@servicekiosk.nl</span>
+                        </a>
+                    </li>
+                    <li>
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <a href="tel:040-2930005">
+                            <b class="bold">040-2930005</b>
+                        </a>
+                    </li>
+                    <li>
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                        <a href="https://www.facebook.com/BigGirlzEindhoven/?fref=ts">
+                            <b class=""> @BigGirlzEindhoven  </b>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-4">
+                <h2>ligula eget dolor</h2>
+                <p></p>
+            </div>
+            <div class="col-lg-12" style="margin-top: 15px;">
+                <span class="pull-right"><a href="http://mediaverse.nl">Mediaverse</a> © 2016 All rights reserved.</span>
+                <span class="pull-left">Copyright © 2016 - 2017</span>
+            </div>
+        </div>
 
     </div>
 

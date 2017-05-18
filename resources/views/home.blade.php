@@ -13,10 +13,10 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container" style="height: 600px;">
         <div class="row">
 
-            <div class="fadeInLeft">
+            <div class="animated fadeInLeft">
                 asdasfasf asdasfaf
             </div>
             <h1 class="animated infinite bounce">Example</h1>
@@ -31,15 +31,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <style>
         .slider-banner{
-            margin-top: -46px;
+            margin-top: -25px;
+            overflow:hidden !important;
+
         }
         .slider-contact{
             height: 200px !important;
             background-color: #2ab27b;
             /*z-index: 1;*/
         }
-        .slider-contact > div {
-            height: 200px;
+        .slider-banner > div {
+            /*height: auto;*/
         }
         .slick-next{
             right: 30px;
@@ -54,6 +56,7 @@
         .slick-arrow{
             z-index: 999 !important;
         }
+
     </style>
 @endpush
 
@@ -61,8 +64,12 @@
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
     <script>
         $(document).ready(function(){
-            $('.slider-banner').slick();
+            $('.slider-banner').slick({
+                dots: true
+            });
     //            $('.slider-contact').focus();
         });
     </script>
+
+
 @endpush
