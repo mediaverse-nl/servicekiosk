@@ -26,6 +26,7 @@ class ApiController extends Controller
             'status' => 200,
             'response' => [
                 'user' => $this->api->user()->console->where('imei', $request->imei)->first(),
+
                 'erer' => $request->all(),
             ],
         ];
