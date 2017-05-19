@@ -19,8 +19,8 @@ class CreateMessageTable extends Migration
             $table->foreign('user_id')->references('id')->on('user');
             $table->integer('user_message_id')->unsigned();
             $table->foreign('user_message_id')->references('id')->on('message');
-            $table->integer('ticket_id')->unsigned();
-            $table->foreign('ticket_id')->references('id')->on('message');
+            $table->integer('text_id')->unsigned();
+            $table->foreign('text_id')->references('id')->on('message');
             $table->string('tekst', 255);
             $table->enum('status', ['answered', 'pending', 'completed'])->nullable();
             $table->timestamps();
