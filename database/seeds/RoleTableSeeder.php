@@ -20,5 +20,8 @@ class RoleTableSeeder extends Seeder
         DB::table('role')->insert([
             'account_type' => 'admin',
         ]);
+        DB::table('role')->insert([
+            'account_type' => 'client',
+        ]);
     }
 }

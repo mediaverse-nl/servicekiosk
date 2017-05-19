@@ -13,27 +13,189 @@ class TicketTableSeeder extends Seeder
     {
         DB::table('ticket')->insert([
             'user_id' => '1',
-            'ticket_id' => '1',
+            'text_id' => '1',
             'titel' => 'test',
             'text' => 'this is a ticket test',
             'priority' => '1',
             'status' => 'pending',
+            'created_at' => date('Y-m-d h-m-i'),
+            'updated_at' => date('Y-m-d h-m-i'),
+            //2017-05-19 09:29:28
         ]);
         DB::table('ticket')->insert([
             'user_id' => '2',
-            'ticket_id' => '1',
+            'text_id' => '2',
             'titel' => 'test',
             'text' => 'this is a ticket test',
             'priority' => '1',
             'status' => 'pending',
+            'created_at' => date('Y-m-d h-m-i'),
+            'updated_at' => date('Y-m-d h-m-i'),
         ]);
         DB::table('ticket')->insert([
             'user_id' => '3',
-            'ticket_id' => '1',
+            'text_id' => '3',
             'titel' => 'test',
             'text' => 'this is a ticket test',
             'priority' => '1',
             'status' => 'pending',
+            'created_at' => date('Y-m-d h-m-i'),
+            'updated_at' => date('Y-m-d h-m-i'),
+        ]);
+        DB::table('ticket')->insert([
+            'user_id' => '1',
+            'text_id' => '1',
+            'titel' => 'test',
+            'text' => 'this is a ticket test',
+            'priority' => '1',
+            'status' => 'pending',
+            'created_at' => date('Y-m-d h-m-i'),
+            'updated_at' => date('Y-m-d h-m-i'),
+            //2017-05-19 09:29:28
+        ]);
+        DB::table('ticket')->insert([
+            'user_id' => '2',
+            'text_id' => '2',
+            'titel' => 'test',
+            'text' => 'this is a ticket test',
+            'priority' => '1',
+            'status' => 'pending',
+            'created_at' => date('Y-m-d h-m-i'),
+            'updated_at' => date('Y-m-d h-m-i'),
+        ]);
+        DB::table('ticket')->insert([
+            'user_id' => '3',
+            'text_id' => '3',
+            'titel' => 'test',
+            'text' => 'this is a ticket test',
+            'priority' => '1',
+            'status' => 'pending',
+            'created_at' => date('Y-m-d h-m-i'),
+            'updated_at' => date('Y-m-d h-m-i'),
+        ]);
+        DB::table('ticket')->insert([
+            'user_id' => '1',
+            'text_id' => '1',
+            'titel' => 'test',
+            'text' => 'this is a ticket test',
+            'priority' => '1',
+            'status' => 'pending',
+            'created_at' => date('Y-m-d h-m-i'),
+            'updated_at' => date('Y-m-d h-m-i'),
+            //2017-05-19 09:29:28
+        ]);
+        DB::table('ticket')->insert([
+            'user_id' => '2',
+            'text_id' => '2',
+            'titel' => 'test',
+            'text' => 'this is a ticket test',
+            'priority' => '1',
+            'status' => 'pending',
+            'created_at' => date('Y-m-d h-m-i'),
+            'updated_at' => date('Y-m-d h-m-i'),
+        ]);
+        DB::table('ticket')->insert([
+            'user_id' => '3',
+            'text_id' => '3',
+            'titel' => 'test',
+            'text' => 'this is a ticket test',
+            'priority' => '1',
+            'status' => 'pending',
+            'created_at' => date('Y-m-d h-m-i'),
+            'updated_at' => date('Y-m-d h-m-i'),
+        ]);
+        DB::table('ticket')->insert([
+            'user_id' => '1',
+            'text_id' => '1',
+            'titel' => 'test',
+            'text' => 'this is a ticket test',
+            'priority' => '1',
+            'status' => 'pending',
+            'created_at' => date('Y-m-d h-m-i'),
+            'updated_at' => date('Y-m-d h-m-i'),
+            //2017-05-19 09:29:28
+        ]);
+        DB::table('ticket')->insert([
+            'user_id' => '2',
+            'text_id' => '2',
+            'titel' => 'test',
+            'text' => 'this is a ticket test',
+            'priority' => '1',
+            'status' => 'pending',
+            'created_at' => date('Y-m-d h-m-i'),
+            'updated_at' => date('Y-m-d h-m-i'),
+        ]);
+        DB::table('ticket')->insert([
+            'user_id' => '3',
+            'text_id' => '3',
+            'titel' => 'test',
+            'text' => 'this is a ticket test',
+            'priority' => '1',
+            'status' => 'pending',
+            'created_at' => date('Y-m-d h-m-i'),
+            'updated_at' => date('Y-m-d h-m-i'),
+        ]);
+        DB::table('ticket')->insert([
+            'user_id' => '1',
+            'text_id' => '1',
+            'titel' => 'test',
+            'text' => 'this is a ticket test',
+            'priority' => '1',
+            'status' => 'pending',
+            'created_at' => date('Y-m-d h-m-i'),
+            'updated_at' => date('Y-m-d h-m-i'),
+            //2017-05-19 09:29:28
+        ]);
+        DB::table('ticket')->insert([
+            'user_id' => '2',
+            'text_id' => '2',
+            'titel' => 'test',
+            'text' => 'this is a ticket test',
+            'priority' => '1',
+            'status' => 'pending',
+            'created_at' => date('Y-m-d h-m-i'),
+            'updated_at' => date('Y-m-d h-m-i'),
+        ]);
+        DB::table('ticket')->insert([
+            'user_id' => '3',
+            'text_id' => '3',
+            'titel' => 'test',
+            'text' => 'this is a ticket test',
+            'priority' => '1',
+            'status' => 'pending',
+            'created_at' => date('Y-m-d h-m-i'),
+            'updated_at' => date('Y-m-d h-m-i'),
+        ]);
+        DB::table('ticket')->insert([
+            'user_id' => '1',
+            'text_id' => '1',
+            'titel' => 'test',
+            'text' => 'this is a ticket test',
+            'priority' => '1',
+            'status' => 'pending',
+            'created_at' => date('Y-m-d h-m-i'),
+            'updated_at' => date('Y-m-d h-m-i'),
+            //2017-05-19 09:29:28
+        ]);
+        DB::table('ticket')->insert([
+            'user_id' => '2',
+            'text_id' => '2',
+            'titel' => 'test',
+            'text' => 'this is a ticket test',
+            'priority' => '1',
+            'status' => 'pending',
+            'created_at' => date('Y-m-d h-m-i'),
+            'updated_at' => date('Y-m-d h-m-i'),
+        ]);
+        DB::table('ticket')->insert([
+            'user_id' => '3',
+            'text_id' => '3',
+            'titel' => 'test',
+            'text' => 'this is a ticket test',
+            'priority' => '1',
+            'status' => 'pending',
+            'created_at' => date('Y-m-d h-m-i'),
+            'updated_at' => date('Y-m-d h-m-i'),
         ]);
     }
 }

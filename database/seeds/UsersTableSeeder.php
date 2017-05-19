@@ -51,5 +51,18 @@ class UsersTableSeeder extends Seeder
             'api_token' => new Token(),
             'password' => bcrypt('admin'),
         ]);
+
+        DB::table('users')->insert([
+            'name' => 'test',
+            'firstname' => 'test',
+            'lastname' => 'test',
+            'email' => 'test@test.nl',
+            'gender' => 'man',
+            'birthdate' => Carbon::createFromDate(1996, 10, 11),
+            'status' => 'Online',
+            'phonenumber' => '06 533757579',
+            'api_token' => new Token(),
+            'password' => bcrypt('client'),
+        ]);
     }
 }
