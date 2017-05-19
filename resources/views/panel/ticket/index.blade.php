@@ -45,7 +45,7 @@
                                         {!! $t->status !!}
                                     </td>
                                     <td>
-                                        <a href="#" class="btn btn-default pull-right">Bekijken</a>
+                                        <a href="{!! route('panel.view', $t->id) !!}" class="btn btn-default pull-right">Bekijken</a>
                                     </td>
                                 </tr>
                             @endforeach

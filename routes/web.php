@@ -83,6 +83,8 @@ Route::post('/contact', ['uses' => 'ContactController@store'])->name('contact.st
 Route::group(['namespace' => 'Auth', 'prefix' => 'panel'], function () {
     Route::get('/', ['uses' => 'PanelController'])->name('panel');
     Route::get('/ticket', ['uses' => 'TicketController@index'])->name('panel.ticket');
+    Route::get('/view/{id}', ['uses' => 'TicketController@view'])->name('panel.view');
+    Route::post('/view/{id}', ['uses' => 'TicketController@store'])->name('panel.store');
 //    Route::get('/dd', ['uses' => 'ClientController@index'])->name('testa');
 
 //        $this->middleware('subscribed')->except('store');
