@@ -22,21 +22,15 @@ class ApiController extends Controller
     public function loadButton(Request $request)
     {
 
-
-
-
         $response = [
             'status' => 200,
             'response' => [
-                'user' => $this->api->user(),
+                'user' => $this->api->user()->console->where('imei', $request->imei)->first(),
                 'erer' => $request->all(),
             ],
         ];
 
-
-
-
-        return response()->json($response, 200
+        return response()->json($response, 200);
 //            ,
 //            [
 //            'headers' => [
@@ -44,7 +38,7 @@ class ApiController extends Controller
 //                'Authorization' => 'Bearer token_DXZTvekkKnHMBbfCnrZvgi6YpdFPZFTHiBBsYSy4MVGbx9pkKQV2N',
 //            ],
 //        ]
-        );
+
     }
 
     public function authenticate(Request $request)
