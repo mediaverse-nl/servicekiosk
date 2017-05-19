@@ -6,17 +6,26 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-3">
-                <div class="list-group">
-                    <a href="#" class="list-group-item active">Systemen</a>
-                    <a href="#" class="list-group-item">Account</a>
-                    <a href="#" class="list-group-item">Facturering</a>
-                    <a href="#" class="list-group-item">Tickets</a>
-                </div>
-            </div>
+
+            @include('layouts.panel-group-menu')
+
             <div class="col-sm-9">
-                <div class="thumbnail">
-                    asdasdasdasdasdasdasdasdasdasd
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        @yield('title')
+                    </div>
+                    <div class="panel-body">
+
+
+                        <div class="col-lg-4">
+
+                            <div class="thumbnail">
+asdasdasd
+                            </div>
+                        </div>
+
+
+                    </div>
                 </div>
 
             </div>
