@@ -15,7 +15,7 @@ class Console extends Model
 
     public function button()
     {
-        return $this->HasMany('App\Button');
+        return $this->HasMany('App\Button', 'button_id');
     }
 
     public function user()

@@ -8,7 +8,7 @@ class Button extends Model
 {
     protected $table = 'button';
 
-    protected $timestamps = true;
+    public $timestamps = true;
 
     protected $guarded = [];
 
