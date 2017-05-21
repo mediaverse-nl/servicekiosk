@@ -53,7 +53,6 @@ class User extends Authenticatable
         return $this->hasMany('App\Ticket', 'user_id');
     }
 
-
     public static function geslacht(){
         return collect([
             'Man' => 'Man',

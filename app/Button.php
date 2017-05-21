@@ -14,7 +14,7 @@ class Button extends Model
 
     public function console()
     {
-        return $this->belongsTo('App\Console', 'console_id');
+        return $this->belongsTo('App\Console', 'console_id', 'id');
     }
 
     public function buttonParent()

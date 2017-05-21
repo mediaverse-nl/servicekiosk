@@ -28,8 +28,9 @@ Route::get('/downloads', ['uses' => 'DownloadController@index'])->name('download
 
 //Route::group(['prefix' => 'api/v1', 'as' => 'api.', 'middleware' => 'token'], function () {
 Route::group(['prefix' => 'api/v1', 'as' => 'api.'], function () {
-    Route::get('/loadbuttons', ['uses' => 'ApiController@loadButton'])->name('loodbutton.show');
-    Route::post('/login', ['uses' => 'ApiController@authenticate'])->name('login');
+    Route::get('/loadbuttons', ['uses' => 'ApiController@loadButton']);
+    Route::post('/postbuttons', ['uses' => 'ApiController@postButton']);
+    Route::post('/login', ['uses' => 'ApiController@authenticate']);
 });
 
 //'headers' => [
