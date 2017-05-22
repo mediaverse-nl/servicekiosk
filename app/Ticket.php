@@ -20,16 +20,6 @@ class Ticket extends Model
         return $this->hasMany('App\Message', 'ticket_id');
     }
 
-    public function ticketParent()
-    {
-        return $this->belongsTo('App\Ticket', 'ticket_id');
-    }
-
-    public function ticketChildren()
-    {
-        return $this->hasMany('App\Ticket', 'ticket_id');
-    }
-
     public static function status()
     {
         return collect([

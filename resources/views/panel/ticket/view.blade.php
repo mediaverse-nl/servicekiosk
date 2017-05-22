@@ -37,17 +37,17 @@
                             </div>
                         </div>
                     </div>
-                    @foreach($message as $m)
+                    @foreach($message->get() as $m)
                         <div class="panel-body">
                             <div class="panel">
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-md-9">
-                                            <h4 style="margin-top: -5px;">{{$m->user->name}}</h4>
+                                            <h4 style="margin-top: -5px;">{!! $m->user->name !!}</h4>
                                             <p>{{$m->tekst}}</p>
                                         </div>
                                         <div class="col-md-12">
-                                            <small class="text-muted pull-right">geplaats
+                                            <small class="text-muted pull-right">geplaatst
                                                 op: {{$m->created_at}}</small>
                                         </div>
                                     </div>
@@ -62,8 +62,8 @@
 
                                 {{ Form::label('Antwoord', 'Antwoord:', ['class' => 'control-label']) }}
                                 {{ Form::textarea('antwoord', null, ['class' => 'form-control', 'rows' => '3']) }}
-                                {{ Form::hidden('uId', $user->id)  }}
-                                {{ Form::hidden('id', $ticket->first()->id)  }}
+                                {{ Form::text('uId', $user->id, ['class' => 'hidden'])  }}
+                                {{ Form::text('id', $ticket->first()->id, ['class' => 'hidden'])  }}
                                 <br>
                                 {{ Form::submit('Verzenden', ['class' => 'btn btn-default pull-right']) }}
                                 {{ Form::close() }}
