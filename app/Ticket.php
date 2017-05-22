@@ -15,6 +15,11 @@ class Ticket extends Model
         return $this->belongsTo('App\User', 'user_id');
     }
 
+    public function message()
+    {
+        return $this->hasMany('App\Message', 'ticket_id');
+    }
+
     public function ticketParent()
     {
         return $this->belongsTo('App\Ticket', 'ticket_id');

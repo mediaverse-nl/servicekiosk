@@ -43,12 +43,20 @@ class TicketController extends Controller
     {
 //        $userRole = $this->userRole->role->where('account_type', 'admin');
 //        $this->userRole = $this->userRole->user->where('user_id', Auth::user()->id);
-        $this->ticket = $this->ticket->where('id', $id)->where('user_id', Auth::user()->id)->get();
+        $this->ticket = $this->ticket
+            ->where('id', $id)
+            ->where('user_id', Auth::user()->id)->get();
+        $this->message = $this->message
+            ->where('text_id', $id)
+            ->where('user_id', $this->user->userRole->first())
+            ->where('user_id', Auth::user()->id)->get();
+        $admin = $this->user
+            ->where($this->user->userRole->first()->role->account_type, 'admin')->get();
+
         return view('panel.ticket.view')
             ->with('ticket', $this->ticket)
-            ->with('role', $this->role->get())
-            ->with('userRole', $this->userRole->get())
-            ->with('user', Auth::user());
+            ->with('admin', $admin)
+            ->with('message', $this->message);
     }
 
     /**
@@ -69,8 +77,6 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->all());
-
         $rules = [
             'antwoord' => 'required',
         ];
@@ -92,7 +98,7 @@ class TicketController extends Controller
         $message->status = 'answered';
         $message->save();
 
-        return view('panel.ticket.view');
+        return redirect()->route('panel.view', $request->id);
     }
 
     /**
