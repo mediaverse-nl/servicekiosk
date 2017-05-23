@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Message;
 use App\Role;
 use App\Ticket;
+use App\User;
 use App\UserRole;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -23,7 +24,7 @@ class TicketController extends Controller
     {
         $this->userRole = new UserRole();
         $this->ticket = new Ticket();
-        $this->user = Auth::user();
+        $this->user = new User();
         $this->role = new Role();
         $this->message = new Message();
     }
@@ -41,22 +42,41 @@ class TicketController extends Controller
 
     public function view($id)
     {
-//        $userRole = $this->userRole->role->where('account_type', 'admin');
-//        $this->userRole = $this->userRole->user->where('user_id', Auth::user()->id);
-        $this->ticket = $this->ticket
-            ->where('id', $id)
-            ->where('user_id', Auth::user()->id)->get();
-        $this->message = $this->message
-            ->where('text_id', $id)
-            ->where('user_id', $this->user->userRole->first())
-            ->where('user_id', Auth::user()->id)->get();
-        $admin = $this->user
-            ->where($this->user->userRole->first()->role->account_type, 'admin')->get();
+//        $this->user = $this->user
+//            // pull ticket related to user id
+//            ->where('id', $this->user->find(Auth::user()->id)->ticket->first()->user_id)
+//            // pull selected ticket ID
+//            ->where($this->user->ticket->id, $id)
+//            // pull messages related to ticket
+//            ->where($this->user->ticket->first()->id, $this->user->message->first()->ticket_id)
+//            // check if user is
+//            ->where($this->user->userRole->first()->role->account_type, 'admin');
+//        $u = $this->user
+//            ->where(Auth::user()->id, $this->user->find(Auth::user()->id)->userRole->first()->user_id)
+//            ->where(Auth::user()->id, $this->user->find(Auth::user()->id)->ticket->first()->message->first()->user_id)
+//            ->where(Auth::user()->id, $this->user->find(Auth::user()->id)->ticket->first()->user_id)
+//            ->where($this->user->find(Auth::user()->id)->userRole->first()->role->account_type, 'admin')
+//            ->orWhere();
+
+//        $this->message = $this->message
+//            ->where('text_id', $id)
+//            ->where('user_id', Auth::user()->id)
+//            ->where($this->user->userRole->first()->role->account_type, 'admin');
+//
+//        $admin = $this->user
+//            ->where($this->user->userRole->first()->role->account_type, 'admin')->get();
+//
+//        $u = $this->user->where('id', Auth::user()->id);
+//        $this->user = $this->user->where($this->user->userRole()->first()->role->account_type, 'admin');
+//        $this->message = $this->message->where('user_id', $this->user->first()->)
+
+        $this->message = $this->message->where('ticket_id', $id)->with('messageChildren');
+//        $messageRecursive = $this->message->where('id', $this->message->first()->id);
 
         return view('panel.ticket.view')
+            ->with('message', $this->message->with('messageChildren'))
             ->with('ticket', $this->ticket)
-            ->with('admin', $admin)
-            ->with('message', $this->message);
+            ->with('user', $this->user->find(Auth::user()->id));
     }
 
     /**
@@ -92,11 +112,15 @@ class TicketController extends Controller
 
         $message = $this->message;
         $message->tekst = $request->antwoord;
-        $message->user_message_id = $request->uId;
-        $message->user_id = Auth::user()->id;
-        $message->text_id = $request->id;
-        $message->status = 'answered';
+        $message->user_message_id = ($request->id - 1);
+        $message->user_id = $request->uId;
+        $message->ticket_id = $request->id;
+        $message->status = 'pending';
         $message->save();
+
+        $ticket = $this->ticket->find($request->id);
+        $ticket->status = 'answered';
+        $ticket->save();
 
         return redirect()->route('panel.view', $request->id);
     }

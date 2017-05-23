@@ -18,12 +18,12 @@ class Message extends Model
         return $this->belongsTo('App\Ticket', 'ticket_id');
     }
 
-    public function message()
+    public function messageParent()
     {
         return $this->belongsTo('App\Message', 'user_message_id');
     }
 
-    public function messageParent()
+    public function messageChildren()
     {
         return $this->hasMany('App\Message', 'user_message_id');
     }
