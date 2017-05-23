@@ -93,6 +93,12 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'panel'], function () {
 });
 
 
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::get('/user/test', ['uses' => function(){
+        return 'ok';
+    }])->middleware('auth:api');
+});
+
 
 //Route::get('/panel', ['as' => 'home', 'uses' => 'HomeController@index'])->name('home');
 
