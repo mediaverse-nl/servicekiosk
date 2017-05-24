@@ -110,9 +110,15 @@ class TicketController extends Controller
                 ->withInput;
         }
 
+//        if(!$this->message->latest()->exists())
+//            $id = null;
+//        else
+//            $id = $this->message->latest()->first()->id->exists();
+        $id = $this->message->latest()->exists() ? $this->message->latest()->first()->id : null;
+
         $message = $this->message;
         $message->tekst = $request->antwoord;
-        $message->user_message_id = ($request->id - 1);
+        $message->user_message_id = $id;
         $message->user_id = $request->uId;
         $message->ticket_id = $request->id;
         $message->status = 'pending';
