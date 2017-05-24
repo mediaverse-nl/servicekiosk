@@ -17,8 +17,8 @@ class CreateMessageTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('message_id')->nullable()->unsigned();
-            $table->foreign('message_id')->references('id')->on('message');
+            $table->integer('user_message_id')->nullable()->unsigned();
+            $table->foreign('user_message_id')->references('id')->on('message');
             $table->integer('ticket_id')->unsigned();
             $table->foreign('ticket_id')->references('id')->on('message');
             $table->string('tekst', 255);

@@ -67,6 +67,12 @@ Route::post('/contact', ['uses' => 'ContactController@store'])->name('contact.st
             Route::patch('/update/{id}', ['uses' => 'ClientController@update'])->name('update');
             Route::delete('/delete/{id}', ['uses' => 'ClientController@destroy'])->name('delete');
         });
+
+        Route::group(['prefix' => 'ticket'], function(){
+            Route::get('/', ['uses' => 'TicketController@index'])->name('ticket.index');
+            Route::get('/view/{id}', ['uses' => 'TicketController@view'])->name('ticket.view');
+            Route::post('/view/{id}', ['uses' => 'TicketController@store'])->name('ticket.store');
+        });
 //        Route::group(['prefix' => 'client', 'as' => 'client.'], function () {
 //            Route::get('/', ['uses' => 'ClientController@index'])->name('index');
 //            Route::get('/create', ['uses' => 'ClientController@create'])->name('create');
@@ -83,7 +89,13 @@ Route::post('/contact', ['uses' => 'ContactController@store'])->name('contact.st
 
 Route::group(['namespace' => 'Auth', 'prefix' => 'panel'], function () {
     Route::get('/', ['uses' => 'PanelController'])->name('panel');
-    Route::get('/ticket', ['uses' => 'TicketController@index'])->name('panel.ticket');
+
+    Route::group(['prefix' => 'ticket'], function() {
+        Route::get('/', ['uses' => 'TicketController@index'])->name('panel.ticket');
+        Route::get('/create', ['uses' => 'TicketController@create'])->name('panel.ticket.create');
+        Route::post('/create', ['uses' => 'TicketController@save'])->name('panel.ticket.create');
+    });
+
     Route::get('/view/{id}', ['uses' => 'TicketController@view'])->name('panel.view');
     Route::post('/view/{id}', ['uses' => 'TicketController@store'])->name('panel.store');
 //    Route::get('/dd', ['uses' => 'ClientController@index'])->name('testa');

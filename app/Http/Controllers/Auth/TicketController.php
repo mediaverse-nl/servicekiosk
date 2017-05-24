@@ -36,8 +36,9 @@ class TicketController extends Controller
      */
     public function index()
     {
-        $this->ticket = $this->ticket->where('user_id', Auth::user()->id)->get();
-        return view('panel.ticket.index')->with('ticket', $this->ticket);
+        $this->ticket = $this->ticket->where('user_id', Auth::user()->id)->orer->get();
+        return view('panel.ticket.index')
+            ->with('ticket', $this->ticket);
     }
 
     public function view($id)
@@ -75,7 +76,7 @@ class TicketController extends Controller
 
         return view('panel.ticket.view')
             ->with('message', $this->message)
-            ->with('ticket', $this->ticket)
+            ->with('ticket', $this->ticket->find($id))
             ->with('user', $this->user->find(Auth::user()->id));
     }
 
@@ -86,7 +87,37 @@ class TicketController extends Controller
      */
     public function create()
     {
-        //
+        return view('panel.ticket.create')->with('p', self::priority());
+    }
+
+    public function save(Request $request)
+    {
+        $rules = [
+            'onderwerp' => 'required|min:3',
+            'probleem' => 'required|min:10',
+            'prioriteit' => 'required'
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->route('panel.ticket.create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $ticket = $this->ticket;
+        $ticket->user_id = Auth::user()->id;
+        $ticket->titel = $request->onderwerp;
+        $ticket->text = $request->probleem;
+        $ticket->priority = $request->prioriteit;
+        $ticket->status = 'pending';
+        $ticket->save();
+
+        \Session::flash('succes_message','Ticket aangemaakt.');
+
+        return redirect()->route('panel.ticket');
     }
 
     /**
@@ -110,10 +141,6 @@ class TicketController extends Controller
                 ->withInput;
         }
 
-//        if(!$this->message->latest()->exists())
-//            $id = null;
-//        else
-//            $id = $this->message->latest()->first()->id->exists();
         $id = $this->message->latest()->exists() ? $this->message->latest()->first()->id : null;
 
         $message = $this->message;
@@ -129,6 +156,18 @@ class TicketController extends Controller
         $ticket->save();
 
         return redirect()->route('panel.view', $request->id);
+    }
+
+    public static function priority()
+    {
+        return collect([
+            '0' => 'geen',
+            '1' => 'laag',
+            '2' => 'redelijk',
+            '3' => 'gemiddel',
+            '4' => 'hoog',
+            '5' => 'heel hoog',
+        ]);
     }
 
     /**

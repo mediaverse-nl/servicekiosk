@@ -1,29 +1,14 @@
-@extends('layouts.panel')
+@extends('layouts.admin')
 
-@section('title', 'ticket')
+@section('title', 'Support tickets')
 
 @section('content')
 
+    <!-- /.row -->
     <div class="container">
         <div class="row">
-            <div class="col-sm-3">
-                <div class="list-group">
-                    <a href="#" class="list-group-item">Systemen</a>
-                    <a href="#" class="list-group-item">Account</a>
-                    <a href="#" class="list-group-item">Facturering</a>
-                    <a href="{{route('panel.ticket')}}" class="list-group-item active">Tickets</a>
-                </div>
-            </div>
-            <div class="col-sm-9 pull-right">
+            <div class="col-sm-9">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Tickets
-                    </div>
-                    <button class="btn btn-default pull-right">
-                        <a href="{!! route('panel.ticket.create') !!}">
-                            Nieuw ticket
-                        </a>
-                    </button>
                     <div class="panel-body">
                         <div class="table-responsive">
                             <table class="table">
@@ -33,6 +18,7 @@
                                     <th>Titel</th>
                                     <th>Aangemaakt</th>
                                     <th>Status</th>
+                                    <th>Prioriteit</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -51,8 +37,11 @@
                                             {!! $t->status !!}
                                         </td>
                                         <td>
-                                            <a href="{!! route('panel.view', $t->id) !!}"
-                                               class="btn btn-default pull-right">Bekijken</a>
+                                            {!! $t->priority !!}
+                                        </td>
+                                        <td>
+                                            <a href="{!! route('admin.ticket.view', $t->id) !!}"
+                                               class="btn btn-default">Bekijken</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -62,6 +51,13 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-8">
+
         </div>
     </div>
 
