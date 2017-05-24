@@ -84,12 +84,12 @@ class TicketController extends Controller
         $message->user_message_id = $id;
         $message->user_id = $request->uId;
         $message->ticket_id = $request->id;
-        $message->status = 'pending';
+        $message->status = 'answered';
         $message->save();
 
-        \Session::flash('succes_message','Ticket aangemaakt.');
+        \Session::flash('succes_message','Ticket beantwoord.');
 
-        return redirect()->route('panel.ticket');
+        return redirect()->route('admin.ticket.index');
     }
 
     /**
