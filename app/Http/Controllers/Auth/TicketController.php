@@ -74,7 +74,7 @@ class TicketController extends Controller
 //        $messageRecursive = $this->message->where('id', $this->message->first()->id);
 
         return view('panel.ticket.view')
-            ->with('message', $this->message->with('messageChildren'))
+            ->with('message', $this->message)
             ->with('ticket', $this->ticket)
             ->with('user', $this->user->find(Auth::user()->id));
     }

@@ -30,7 +30,7 @@
                                         <p>{{$ticket->first()->text}}</p>
                                     </div>
                                     <div class="col-md-12">
-                                        <small class="text-muted pull-right">geplaats
+                                        <small class="text-muted pull-right">geplaatst
                                             op: {{$ticket->first()->created_at}}</small>
                                     </div>
                                 </div>
