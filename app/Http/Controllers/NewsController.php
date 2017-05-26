@@ -2,17 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Blog;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-    public function index()
+
+    protected $blog;
+
+    public function __construct()
     {
-        return view('news.index');
+        $this->blog = new Blog();
     }
 
-    public function show()
+    public function index()
     {
-        return view('news.show');
+        return view('news.index')->with('blog', $this->blog->get());
+    }
+
+    public function show($id)
+    {
+        return view('news.show')->with('blog', $this->blog->find($id)->get());
     }
 }

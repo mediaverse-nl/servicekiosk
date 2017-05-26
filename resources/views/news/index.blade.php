@@ -9,11 +9,10 @@
         <div class="row">
 
             <div class="col-lg-9">
-
-
+                @foreach($blog as $b)
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        title van de update, wijzigen of mededeling
+                        {!! $b->titel !!}
                         <span class="pull-right">
                             v1.2.2
                         </span>
@@ -21,20 +20,15 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-4">
-                                asdasd
-                            </div>
-                            <div class="col-lg-4">
-                                asdasd
-                            </div>
-                            <div class="col-lg-4">
-                                asdasd
+                                {!! $b->text !!}
                             </div>
                         </div>
                     </div>
                     <div class="panel-footer">
-                        <p class="text-right small">Geplaatst: x datum </p>
+                        <p class="text-right small">Geplaatst: {!! $b->created_at !!} </p>
                     </div>
                 </div>
+                @endforeach
 
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -73,6 +67,5 @@
 
         </div>
     </div>
-
 
 @endsection

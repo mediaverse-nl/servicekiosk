@@ -68,6 +68,10 @@ Route::post('/contact', ['uses' => 'ContactController@store'])->name('contact.st
             Route::delete('/delete/{id}', ['uses' => 'ClientController@destroy'])->name('delete');
         });
 
+        Route::group('/', ['prefix' => 'blog'], function(){
+            Route::get('/', ['uses' => 'BlogController@index'])->name('index');
+        });
+
         Route::group(['prefix' => 'ticket'], function(){
             Route::get('/', ['uses' => 'TicketController@index'])->name('ticket.index');
             Route::get('/view/{id}', ['uses' => 'TicketController@view'])->name('ticket.view');

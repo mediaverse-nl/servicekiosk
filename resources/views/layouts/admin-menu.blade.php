@@ -324,6 +324,7 @@
                 </li>
                 <li>
                     <a href="{!! route('admin.ticket.index') !!}"><i class="fa fa-support fa-fw"></i>Support tickets</a>
+                    <a href="{!! route('admin.ticket.index') !!}"><i class="fa fa-support fa-fw"></i>Blog</a>
                 </li>
             </ul>
         </div>

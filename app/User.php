@@ -58,6 +58,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Message', 'user_id');
     }
 
+    public function blog()
+    {
+        return $this->hasMany('App\Blog', 'user_id');
+    }
+
     public static function geslacht(){
         return collect([
             'Man' => 'Man',
