@@ -7,6 +7,7 @@ use App\Ticket;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class TicketController extends Controller
@@ -38,9 +39,11 @@ class TicketController extends Controller
     public function view($id)
     {
         return view('admin.ticket.view')
-            ->with('ticket', $this->ticket->find($id))
+            // For unknown reasons, find($id) brings up the entire ticket collection instead of a single row
+//            ->with('ticket', $this->ticket->find($id)->get())
+                ->with('ticket', $this->ticket->where('id', $id)->get())
             ->with('message', $this->message->where('ticket_id', $id))
-            ->with('user', $this->user->where('id', $this->ticket->first()->user_id)->get());
+            ->with('user', Auth::user());
     }
 
     /**
@@ -64,7 +67,7 @@ class TicketController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $rules = [];
 
@@ -77,19 +80,23 @@ class TicketController extends Controller
                 ->withInput();
         }
 
-        $id = $this->message->latest()->exists() ? $this->message->latest()->first()->id : null;
+        $lastMessageId = $this->message->where('ticket_id', $id)->exists() ? $this->message->where('ticket_id', $id)->latest()->first()->id : null;
 
         $message = $this->message;
         $message->tekst = $request->antwoord;
-        $message->user_message_id = $id;
-        $message->user_id = $request->uId;
-        $message->ticket_id = $request->id;
+        $message->user_message_id = $lastMessageId;
+        $message->user_id = Auth::user()->id;
+        $message->ticket_id = $id;
         $message->status = 'answered';
         $message->save();
 
+        $ticket = $this->ticket->find($id);
+        $ticket->status = 'answered';
+        $ticket->save();
+
         \Session::flash('succes_message','Ticket beantwoord.');
 
-        return redirect()->route('admin.ticket.index');
+        return redirect()->route('admin.ticket.view', $id);
     }
 
     /**

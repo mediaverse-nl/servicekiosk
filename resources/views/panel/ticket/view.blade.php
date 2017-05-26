@@ -18,7 +18,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3>
-                            Onderwerp {!! $ticket->titel !!}
+                            Onderwerp {!! $ticket->first()->titel !!}
                         </h3>
                     </div>
                     <div class="panel-body">
@@ -26,12 +26,12 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-9">
-                                        <h4 style="margin-top: -5px;">{{$ticket->user->name}}</h4>
-                                        <p>{{$ticket->text}}</p>
+                                        <h4 style="margin-top: -5px;">{{$ticket->first()->user->name}}</h4>
+                                        <p>{{$ticket->first()->text}}</p>
                                     </div>
                                     <div class="col-md-12">
                                         <small class="text-muted pull-right">geplaatst
-                                            op: {{$ticket->created_at}}</small>
+                                            op: {{$ticket->first()->created_at}}</small>
                                         {{--<button class="btn btn-primary btn-xs pull-right">antwoord</button>--}}
                                     </div>
                                 </div>
@@ -63,8 +63,6 @@
 
                                 {{ Form::label('Antwoord', 'Antwoord:', ['class' => 'control-label']) }}
                                 {{ Form::textarea('antwoord', null, ['class' => 'form-control', 'rows' => '3']) }}
-                                {{ Form::text('uId', $user->id, ['class' => 'hidden'])  }}
-                                {{ Form::text('id', $ticket->id, ['class' => 'hidden'])  }}
                                 <br>
                                 {{ Form::submit('Verzenden', ['class' => 'btn btn-default pull-right']) }}
                                 {{ Form::close() }}

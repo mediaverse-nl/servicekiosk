@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use function MongoDB\BSON\toJSON;
 
 class TicketController extends Controller
 {
@@ -36,7 +37,7 @@ class TicketController extends Controller
      */
     public function index()
     {
-        $this->ticket = $this->ticket->where('user_id', Auth::user()->id)->orer->get();
+        $this->ticket = $this->ticket->where('user_id', Auth::user()->id)->get();
         return view('panel.ticket.index')
             ->with('ticket', $this->ticket);
     }
@@ -71,12 +72,15 @@ class TicketController extends Controller
 //        $this->user = $this->user->where($this->user->userRole()->first()->role->account_type, 'admin');
 //        $this->message = $this->message->where('user_id', $this->user->first()->)
 
+        if(Auth::user()->id != $this->ticket->find($id)->user_id)
+            return redirect()->route('panel.ticket');
+
         $this->message = $this->message->where('ticket_id', $id)->with('messageChildren');
 //        $messageRecursive = $this->message->where('id', $this->message->first()->id);
 
         return view('panel.ticket.view')
             ->with('message', $this->message)
-            ->with('ticket', $this->ticket->find($id))
+            ->with('ticket', $this->ticket->where('id', $id)->get())
             ->with('user', $this->user->find(Auth::user()->id));
     }
 
@@ -126,7 +130,7 @@ class TicketController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $rules = [
             'antwoord' => 'required',
@@ -141,18 +145,18 @@ class TicketController extends Controller
                 ->withInput;
         }
 
-        $id = $this->message->latest()->exists() ? $this->message->latest()->first()->id : null;
+        $lastMessageId = $this->message->where('ticket_id', $id)->latest()->exists() ? $this->message->where('ticket_id', $id)->latest()->first()->id : null;
 
         $message = $this->message;
         $message->tekst = $request->antwoord;
-        $message->user_message_id = $id;
-        $message->user_id = $request->uId;
-        $message->ticket_id = $request->id;
+        $message->user_message_id = $lastMessageId;
+        $message->user_id = Auth::user()->id;
+        $message->ticket_id = $id;
         $message->status = 'pending';
         $message->save();
 
         $ticket = $this->ticket->find($request->id);
-        $ticket->status = 'answered';
+        $ticket->status = 'pending';
         $ticket->save();
 
         return redirect()->route('panel.view', $request->id);

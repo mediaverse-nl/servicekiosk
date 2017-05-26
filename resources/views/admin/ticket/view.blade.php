@@ -30,6 +30,7 @@
                             </div>
                         </div>
                     </div>
+{{--                    {!! dd($message->get()) !!}--}}
                     @foreach($message->get() as $m)
                         <div class="panel-body">
                             <div class="panel">
@@ -55,8 +56,6 @@
 
                                 {{ Form::label('Antwoord', 'Antwoord:', ['class' => 'control-label']) }}
                                 {{ Form::textarea('antwoord', null, ['class' => 'form-control', 'rows' => '3']) }}
-                                {{ Form::text('uId', $user->first()->id, ['class' => 'hidden'])  }}
-                                {{ Form::text('id', $ticket->first()->id, ['class' => 'hidden'])  }}
                                 <br>
                                 {{ Form::submit('Verzenden', ['class' => 'btn btn-default pull-right']) }}
                                 {{ Form::close() }}
