@@ -69,7 +69,9 @@ class TicketController extends Controller
      */
     public function store(Request $request, $id)
     {
-        $rules = [];
+        $rules = [
+            'antwoord' => 'required|min:10'
+        ];
 
         $validator = Validator::make($request->all(), $rules);
 

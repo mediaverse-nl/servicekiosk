@@ -24,13 +24,11 @@
                                     <div class="col-md-12">
                                         <small class="text-muted pull-right">geplaatst
                                             op: {{$ticket->first()->created_at}}</small>
-                                        {{--<button class="btn btn-primary btn-xs pull-right">antwoord</button>--}}
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-{{--                    {!! dd($message->get()) !!}--}}
                     @foreach($message->get() as $m)
                         <div class="panel-body">
                             <div class="panel">
