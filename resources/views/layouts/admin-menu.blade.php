@@ -322,6 +322,9 @@
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
+                <li>
+                    <a href="{!! route('admin.ticket.index') !!}"><i class="fa fa-support fa-fw"></i>Support tickets</a>
+                </li>
             </ul>
         </div>
         <!-- /.sidebar-collapse -->
