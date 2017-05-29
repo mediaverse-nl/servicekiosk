@@ -22,6 +22,6 @@ class NewsController extends Controller
 
     public function show($id)
     {
-        return view('news.show')->with('blog', $this->blog->find($id)->get());
+        return view('news.show')->with('blog', $this->blog->find($id));
     }
 }

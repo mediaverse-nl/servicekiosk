@@ -12,7 +12,7 @@
                 @foreach($blog as $b)
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        {!! $b->titel !!}
+                        <a href="{!! route('nieuws.show', [$b->id, str_replace(' ', '-', $b->titel)]) !!}" >{!! $b->titel !!}</a>
                         {{--<span class="pull-right">--}}
                             {{--v1.2.2--}}
                         {{--</span>--}}
