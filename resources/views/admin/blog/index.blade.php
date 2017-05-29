@@ -16,6 +16,7 @@
                                 <tr>
                                     <th>Titel</th>
                                     <th>Aangemaakt</th>
+                                    <th>Door</th>
                                     <th>Opties</th>
                                 </tr>
                                 </thead>
@@ -29,7 +30,10 @@
                                             {!! $b->created_at !!}
                                         </td>
                                         <td>
-                                            <div class="pull-right __web-inspector-hide-shortcut__">
+                                            {!! $b->user->name !!}
+                                        </td>
+                                        <td>
+                                            <div class="__web-inspector-hide-shortcut__">
                                                 <div class="btn-group">
                                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                                         Opties
@@ -37,10 +41,10 @@
                                                     </button>
                                                     <ul class="dropdown-menu pull-right" role="menu">
                                                         <li>
-                                                            <a href="">Wijzigen</a>
+                                                            <a href="{!! route('admin.blog.update', $b->id) !!}">Wijzigen</a>
                                                         </li>
                                                         <li>
-                                                            <a href="">Verwijderen</a>
+                                                            <a href="{!! route('admin.blog.delete', $b->id) !!}">Verwijderen</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -50,6 +54,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                            <a href="{!! route('admin.blog.create') !!}" class="btn btn-default">Nieuw</a>
                         </div>
                     </div>
                 </div>

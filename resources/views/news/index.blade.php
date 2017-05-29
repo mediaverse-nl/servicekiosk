@@ -13,14 +13,14 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         {!! $b->titel !!}
-                        <span class="pull-right">
-                            v1.2.2
-                        </span>
+                        {{--<span class="pull-right">--}}
+                            {{--v1.2.2--}}
+                        {{--</span>--}}
                     </div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-4">
-                                {!! $b->text !!}
+                                {!! $b->tekst !!}
                             </div>
                         </div>
                     </div>

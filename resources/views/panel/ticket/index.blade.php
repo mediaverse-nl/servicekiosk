@@ -19,11 +19,6 @@
                     <div class="panel-heading">
                         Tickets
                     </div>
-                    <button class="btn btn-default pull-right">
-                        <a href="{!! route('panel.ticket.create') !!}">
-                            Nieuw ticket
-                        </a>
-                    </button>
                     <div class="panel-body">
                         <div class="table-responsive">
                             <table class="table">
@@ -58,6 +53,10 @@
                                 @endforeach
                                 </tbody>
                             </table>
+
+                            <a class="btn btn-default" href="{!! route('panel.ticket.create') !!}">
+                                Nieuw ticket
+                            </a>
                         </div>
                     </div>
                 </div>

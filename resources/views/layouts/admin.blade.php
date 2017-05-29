@@ -90,6 +90,8 @@
             <!-- /.col-lg-12 -->
         </div>
 
+        @include('errors.message')
+
         @yield('content')
 
     </div>
@@ -101,7 +103,11 @@
     <script src="{{ asset('js/app.js') }}"></script>
     {{--<script src="http://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/3.3.7+1/js/sb-admin-2.min.js"></script>--}}
     <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.0/metisMenu.min.js"></script>
-
+<script>
+    $(".alert").delay(4000).fadeOut(400, function() {
+        $(this).alert('close');
+    });
+</script>
     <script>
         $(function() {
             $('#side-menu').metisMenu();

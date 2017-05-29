@@ -18,6 +18,7 @@
                                     <th>First Name</th>
                                     <th>Last Name</th>
                                     <th>Username</th>
+                                    <th>Opties</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -27,6 +28,24 @@
                                         <td>Mark</td>
                                         <td>Otto</td>
                                         <td>@mdo</td>
+                                        <td>
+                                            <div class="__web-inspector-hide-shortcut__">
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                                        Opties
+                                                        <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu pull-right" role="menu">
+                                                        <li>
+                                                            <a href="#">Wijzigen</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Verwijderen</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

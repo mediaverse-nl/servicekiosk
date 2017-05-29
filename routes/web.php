@@ -68,9 +68,14 @@ Route::post('/contact', ['uses' => 'ContactController@store'])->name('contact.st
             Route::delete('/delete/{id}', ['uses' => 'ClientController@destroy'])->name('delete');
         });
 
-        Route::group('/', ['prefix' => 'blog'], function(){
-            Route::get('/', ['uses' => 'BlogController@index'])->name('index');
-        });
+        Route::get('/blog', ['uses' => 'BlogController@index'])->name('blog.index');
+        Route::get('/blog/create', ['uses' => 'BlogController@create'])->name('blog.create');
+        Route::post('/blog/create', ['uses' => 'BlogController@store'])->name('blog.create');;
+        Route::get('/blog/update/{id}', ['uses' => 'BlogController@edit'])->name('blog.update');
+        Route::patch('/blog/update/{id}', ['uses' => 'BlogController@update'])->name('blog.update');
+        Route::get('/blog/delete/{id}', ['uses' => 'BlogController@destroy'])->name('blog.delete');
+
+//        Route::get('/order', ['uses' => 'OrderController@index'])->name('order.index');
 
         Route::group(['prefix' => 'ticket'], function(){
             Route::get('/', ['uses' => 'TicketController@index'])->name('ticket.index');
@@ -117,9 +122,3 @@ Route::group(['middleware' => 'auth:api'], function () {
 
 
 //Route::get('/panel', ['as' => 'home', 'uses' => 'HomeController@index'])->name('home');
-
-
-
-
-
-
