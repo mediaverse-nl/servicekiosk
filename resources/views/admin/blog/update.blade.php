@@ -11,7 +11,7 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="table-responsive">
-                            {!! Form::model($blog, ['class' => 'form-horizontal', 'method' => 'patch','route' => ['admin.blog.update', $blog->id]]) !!}
+                            {!! Form::model($blog, ['class' => 'form-horizontal', 'method' => 'patch', 'route' => ['admin.blog.update', $blog->id]]) !!}
                             {!! Form::label('Titel', 'Titel:', ['class' => 'control-label']) !!}
                             {!! Form::text('titel', null, ['class' => 'form-control']) !!}
                             {!! Form::label('Bericht', 'Bericht:', ['class' => 'control-label']) !!}

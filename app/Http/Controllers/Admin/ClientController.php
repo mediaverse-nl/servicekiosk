@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\Validator;
 use Mollie;
 use App\Client;
 
@@ -78,7 +79,7 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.client.index')->with('client', $this->client->find($id));
+        return view('admin.client.update')->with('client', $this->client->find($id));
     }
 
     /**
@@ -90,7 +91,36 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rules = [
+            'adress' => 'required|max:120',
+            'zipcode' => 'required|min:6|max:6',
+            'city' => 'required|max:80',
+            'companyname' => 'required',
+            'kvk' => 'required|max:30',
+            'vatnumber' => 'required|max:30',
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if($validator->fails()){
+            return redirect()
+                ->route('admin.client.update', ['id' => $id])
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $client = $this->client->find($id);
+        $client->adress;
+        $client->zipcode;
+        $client->city;
+        $client->companyname;
+        $client->kvk;
+        $client->vatnumber;
+        $client->save();
+
+        \Session::flash('success_message', 'Gegevens opgeslagen');
+
+        return redirect()->route('admin.client.update', ['id' => $id]);
     }
 
     /**
@@ -101,6 +131,10 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $client = $this->client->find($id);
+        $client->delete();
+
+        \Session::flash('success_message', 'Gegevens verwijdert');
+        return redirect()->route('admin.client.index');
     }
 }

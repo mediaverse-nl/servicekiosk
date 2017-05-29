@@ -64,7 +64,7 @@ Route::post('/contact', ['uses' => 'ContactController@store'])->name('contact.st
             Route::get('/create', ['uses' => 'ClientController@create'])->name('create');
             Route::get('/edit/{id}', ['uses' => 'ClientController@edit'])->name('edit');
             Route::post('/store', ['uses' => 'ClientController@store'])->name('store');
-            Route::patch('/update/{id}', ['uses' => 'ClientController@update'])->name('update');
+            Route::patch('/edit/{id}', ['uses' => 'ClientController@update'])->name('update');
             Route::delete('/delete/{id}', ['uses' => 'ClientController@destroy'])->name('delete');
         });
 

@@ -44,7 +44,7 @@
                                                             <a href="{!! route('admin.blog.update', $b->id) !!}">Wijzigen</a>
                                                         </li>
                                                         <li>
-                                                            <a href="{!! route('admin.blog.delete', $b->id) !!}">Verwijderen</a>
+                                                            <a href="{!! route('admin.blog.delete') !!}">Verwijderen</a>
                                                         </li>
                                                     </ul>
                                                 </div>

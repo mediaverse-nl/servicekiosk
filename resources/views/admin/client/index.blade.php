@@ -24,10 +24,10 @@
                             <tbody>
                                 @foreach($clients as $client)
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
+                                        <th scope="row">{!! $client->id !!}</th>
+                                        <td>{!! $client->user->firstname !!}</td>
+                                        <td>{!! $client->user->lastname !!}</td>
+                                        <td>{!! $client->user->name !!}</td>
                                         <td>
                                             <div class="__web-inspector-hide-shortcut__">
                                                 <div class="btn-group">
@@ -37,10 +37,10 @@
                                                     </button>
                                                     <ul class="dropdown-menu pull-right" role="menu">
                                                         <li>
-                                                            <a href="#">Wijzigen</a>
+                                                            <a href="{!! route('admin.client.edit', $client->id) !!}">Wijzigen</a>
                                                         </li>
                                                         <li>
-                                                            <a href="#">Verwijderen</a>
+                                                            <a href="{!! route('admin.client.delete', $client->id) !!}">Verwijderen</a>
                                                         </li>
                                                     </ul>
                                                 </div>
