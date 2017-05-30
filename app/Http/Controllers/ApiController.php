@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Button;
 use App\Console;
-use Auth;
 use function GuzzleHttp\Psr7\str;
-use Validator;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Validator;
 
 use Illuminate\Http\Request;
 
@@ -66,7 +66,6 @@ class ApiController extends Controller
             return response()->json(['error' => $validator->errors()]);
         }
 
-//        user
         $console = $this->button
             ->with('buttonChildren')
             ->whereHas('console', function ($q) use ($request) {
@@ -74,15 +73,20 @@ class ApiController extends Controller
             })
             ->where('button_id', null);
 
-//        dd($console);
-//        $console = $this->console->where('imei', $request->header('imei'))->first()->with('button.buttonParent');
+        if($request->exists('parent_id')) {
+            $console->where('parent_id', $request->parent_id);
+        } else {
+            $console->where('parent_id', null);
+        }
 
-        $response = [
-            'status' => 200,
-            'response' => [
-                'consoleButtons' => $console->get(),
-            ],
-        ];
+            $response = [
+                'status' => 200,
+                'response' => [
+                    'consoleButtons' => $console->get(),
+                ],
+            ];
+
+
 
         return response()->json($response, 200);
     }
