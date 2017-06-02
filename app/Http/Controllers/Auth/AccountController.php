@@ -8,16 +8,17 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
 
 class AccountController extends Controller
 {
     protected $user;
-    protected $client;
+//    protected $client;
 
     public function __construct()
     {
         $this->user = new User();
-        $this->client = new Client();
+//        $this->client = new Client();
     }
 
     /**
@@ -28,8 +29,8 @@ class AccountController extends Controller
     public function index()
     {
         return view('panel.account.index')
-            ->with('user', $this->user->find(Auth::user()->id))
-            ->with('u', $this->user->find(Auth::user()->id)->client->first());
+            ->with('u', Auth::user());
+//            ->with('u', $this->user->find(Auth::user()->id)->client->first());
     }
 
     /**
@@ -84,6 +85,7 @@ class AccountController extends Controller
      */
     public function update(Request $request, $id)
     {
+//        dd(Auth::user());
         $rules = [
             'email' => 'required',
             'firstname' => 'required',
@@ -97,23 +99,23 @@ class AccountController extends Controller
             'vatnumber' => 'required'
         ];
 
-        $validator  = Validator::make($request->all(), $rules);
+        $validator = Validator::make($request->all(), $rules);
 
-        if($validator->fails()){
+        if ($validator->fails()) {
             return redirect()
                 ->route('panel.account.index')
                 ->withErrors($validator)
                 ->withInput();
         }
 
-//        $user = $this->user->find($id);
-//        $user->email = $request->email;
-//        $user->firstname = $request->firstname;
-//        $user->lastname = $request->lastname;
-//        $user->phonenumber = $request->phonenumber;
-//        $user->save();
+        $user = $this->user->find($id);
+        $user->email = $request->email;
+        $user->firstname = $request->firstname;
+        $user->lastname = $request->lastname;
+        $user->phonenumber = $request->phonenumber;
+        $user->save();
 
-        $client = $this->client->where('user_id', $id)->first();
+        $client = Auth::user()->client->first();
         $client->adress = $request->adress;
         $client->zipcode = $request->zipcode;
         $client->city = $request->city;
@@ -122,7 +124,7 @@ class AccountController extends Controller
         $client->vatnumber = $request->vatnumber;
         $client->save();
 
-        \Session::flash('success_message', 'Gegevens opgeslagen');
+        Session::flash('success_message', 'Gegevens opgeslagen');
 
         return redirect()->route('panel.account.index');
     }

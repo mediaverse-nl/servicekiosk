@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
 
 class BlogController extends Controller
 {
@@ -65,7 +66,8 @@ class BlogController extends Controller
         $blog->user_id = Auth::user()->id;
         $blog->save();
 
-        \Session::flash('succes_message','Nieuws bericht opgeslagen');
+
+        Session::flash('succes_message','Nieuws bericht opgeslagen');
 
         return redirect()->route('admin.blog.index');
     }
@@ -122,7 +124,7 @@ class BlogController extends Controller
         $blog->user_id = Auth::user()->id;
         $blog->save();
 
-        \Session::flash('succes_message','Nieuws bericht opgeslagen');
+        Session::flash('succes_message','Nieuws bericht opgeslagen');
 
         return redirect()->route('admin.blog.index');
     }

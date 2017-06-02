@@ -13,7 +13,8 @@
                         Account gegevens
                     </div>
                     <div class="panel-body">
-                        {!! Form::model($user, ['route' => ['panel.account.update', $user->id], 'method' => 'PATCH', 'class' => 'form-horizontal']) !!}
+                        {{--{!! dd($u) !!}--}}
+                        {!! Form::model($u, ['route' => ['panel.account.update', $u->id], 'method' => 'PATCH', 'class' => 'form-horizontal']) !!}
                         {!! Form::label('Naam', 'Naam:', ['class' => 'control-label']) !!}
                         {!! Form::text('firstname', null, ['class' => 'form-control']) !!}
                         {!! Form::label('Achternaam', 'Achternaam:', ['class' => 'control-label']) !!}
@@ -23,17 +24,17 @@
                         {!! Form::label('Telefoon', 'Telefoon nr.:', ['class' => 'control-label']) !!}
                         {!! Form::text('phonenumber', null, ['class' => 'form-control']) !!}
                         {!! Form::label('Adres', 'Adres:', ['class' => 'control-label']) !!}
-                        {!! Form::text('adress', $u->adress, ['class' => 'form-control']) !!}
+                        {!! Form::text('adress', $u->client->first()->adress, ['class' => 'form-control']) !!}
                         {!! Form::label('Postcode', 'Postcode:', ['class' => 'control-label']) !!}
-                        {!! Form::text('zipcode', $u->zipcode, ['class' => 'form-control']) !!}
+                        {!! Form::text('zipcode', $u->client->first()->zipcode, ['class' => 'form-control']) !!}
                         {!! Form::label('Plaats', 'Plaats:', ['class' => 'control-label']) !!}
-                        {!! Form::text('city', $u->city, ['class' => 'form-control']) !!}
+                        {!! Form::text('city', $u->client->first()->city, ['class' => 'form-control']) !!}
                         {!! Form::label('Bedrijf', 'Bedrijf:', ['class' => 'control-label']) !!}
-                        {!! Form::text('companyname', $u->companyname, ['class' => 'form-control']) !!}
+                        {!! Form::text('companyname', $u->client->first()->companyname, ['class' => 'form-control']) !!}
                         {!! Form::label('KvK', 'KvK:', ['class' => 'control-label']) !!}
-                        {!! Form::text('kvk', $u->kvk, ['class' => 'form-control']) !!}
+                        {!! Form::text('kvk', $u->client->first()->kvk, ['class' => 'form-control']) !!}
                         {!! Form::label('VAT', 'VAT nummer:', ['class' => 'control-label']) !!}
-                        {!! Form::text('vatnumber', $u->vatnumber, ['class' => 'form-control']) !!}
+                        {!! Form::text('vatnumber', $u->client->first()->vatnumber, ['class' => 'form-control']) !!}
                         <br>
                         {!! Form::submit('Opslaan', ['class' => 'btn btn-primary']) !!}
                     </div>
