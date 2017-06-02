@@ -6,6 +6,35 @@
 
     <div class="container">
         <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-body">
+                    {{ Form::open(['method' => 'post']) }}
+                    <div class="form-group">
+                        {{ Form::label('Naam', 'Naam *') }}
+                        {{ Form::text('Naam', Auth::check() ? Auth::user()->name.' '.Auth::user()->achternaam : null, ['class' => 'form-control']) }}
+                    </div>
+                    <div class="form-group">
+                        {{ Form::label('mail', 'E-mail *') }}
+                        {{ Form::text('mail', Auth::check() ? Auth::user()->email : null, ['class' => 'form-control']) }}
+                    </div>
+                    <div class="form-group">
+                        {{ Form::label('Bericht', 'Bericht *') }}
+                        {{ Form::textarea('Bericht', null, ['class' => 'form-control']) }}
+                    </div>
+                    <div class="form-group">
+                        {{ Form::submit('versturen', ['class' => 'btn btn-default']) }}
+                        {{ Form::close() }}
+                        <span class="pull-right">Alle velden met een * zijn verplicht.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" style="">
+{{--                <p>@include('includes._text_editor', ['text' => 'contact_text'])</p>--}}
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2487.7470007520255!2d5.4870205157669885!3d51.42607397962181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c6d8568a601f55%3A0x8090d2a5b7d0b2bc!2sLeenderweg+74B%2C+5615+AB+Eindhoven!5e0!3m2!1snl!2snl!4v1492609180812" width="100%" height="340" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="row">
 
             <div class="col-lg-6">
                 <div class="slider-contact">

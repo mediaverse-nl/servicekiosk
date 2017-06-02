@@ -85,11 +85,8 @@
 <body>
 
 @include('layouts.panel-menu')
-
-<div id="app">
-
 @include('errors.message')
-
+<div id="app">
 
 
     {{--<div id="wrapper" style="min-height: 898px;">--}}

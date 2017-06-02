@@ -18,7 +18,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-lg-4">
+                            <div class="col-lg-12">
                                 {!! $blog->tekst !!}
                             </div>
                         </div>

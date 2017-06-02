@@ -2,24 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 use Illuminate\Support\Facades\Validator;
-use Mollie;
-use App\Client;
 
-class ClientController extends Controller
+class ServiceController extends Controller
 {
-    protected $mollie;
-    protected $client;
+    protected $service;
 
-    function __construct()
+    public function __construct()
     {
-        $this->mollie = Mollie::api();
-        $this->client = new Client();
+        $this->service = new service();
     }
-
 
     /**
      * Display a listing of the resource.
@@ -28,7 +23,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return view('admin.client.index')->with('clients', $this->client->get());
+        return view('admin.service.index')->with('service', $this->service->get());
     }
 
     /**
@@ -38,15 +33,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('admin.client.create');
-
-//        $subscription = $this->mollie->customers_subscriptions->withParentId("cst_stTC2WHAuS")->create([
-//            "amount"      => 25.00,
-//            "times"       => 4,
-//            "interval"    => "3 months",
-//            "description" => "Quarterly payment",
-//            "webhookUrl"  => "https://example.org/payments/webhook",
-//        ]);
+        return view('admin.service.create');
     }
 
     /**
@@ -57,7 +44,28 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'name' => 'required',
+            'description' => 'required'
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if($validator->fails()){
+            return redirect()
+                ->route('admin.service.create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $service = $this->service;
+        $service->name = $request->name;
+        $service->description = $request->description;
+        $service->save();
+
+        \Session::flash('succes_message','service gegevens opgeslagen.');
+
+        return redirect()->route('admin.service.index');
     }
 
     /**
@@ -68,7 +76,7 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.service.view')->with('service', $this->service->find($id));
     }
 
     /**
@@ -79,7 +87,7 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.client.update')->with('client', $this->client->find($id));
+        //
     }
 
     /**
@@ -92,35 +100,27 @@ class ClientController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-            'adress' => 'required|max:120',
-            'zipcode' => 'required|min:6|max:6',
-            'city' => 'required|max:80',
-            'companyname' => 'required',
-            'kvk' => 'required|max:30',
-            'vatnumber' => 'required|max:30',
+            'name' => 'required',
+            'description' => 'required'
         ];
 
         $validator = Validator::make($request->all(), $rules);
 
         if($validator->fails()){
             return redirect()
-                ->route('admin.client.update', ['id' => $id])
+                ->route('admin.service.view', $id)
                 ->withErrors($validator)
                 ->withInput();
         }
 
-        $client = $this->client->find($id);
-        $client->adress;
-        $client->zipcode;
-        $client->city;
-        $client->companyname;
-        $client->kvk;
-        $client->vatnumber;
-        $client->save();
+        $service = $this->service->find($id);
+        $service->name = $request->name;
+        $service->description = $request->description;
+        $service->save();
 
-        \Session::flash('success_message', 'Gegevens opgeslagen');
+        \Session::flash('succes_message','Service gegevens opgeslagen.');
 
-        return redirect()->route('admin.client.update', ['id' => $id]);
+        return redirect()->route('admin.service.view', $id);
     }
 
     /**
@@ -131,10 +131,11 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        $client = $this->client->find($id);
-        $client->delete();
+        $service = $this->service->find($id);
+        $service->delete();
 
-        \Session::flash('success_message', 'Gegevens verwijderd');
-        return redirect()->route('admin.client.index');
+        \Session::flash('succes_message','Service verwijderd.');
+
+        return redirect()->route('admin.service.index');
     }
 }

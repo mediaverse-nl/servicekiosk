@@ -19,8 +19,8 @@
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-lg-4">
-                                {!! $b->tekst !!}
+                            <div class="col-lg-12">
+                                {!! str_limit($b->tekst, 350) !!}
                             </div>
                         </div>
                     </div>

@@ -324,6 +324,8 @@
                 </li>
                 <li>
 {{--                    <a href="{!! route('admin.order.index') !!}"><i class="fa fa fa-fw">Orders</i></a>--}}
+                    <a href="{!! route('admin.product.index') !!}"><i class="fa fa-support fa-fw"></i>Producten</a>
+                    <a href="{!! route('admin.service.index') !!}"><i class="fa fa-support fa-fw"></i>Services</a>
                     <a href="{!! route('admin.ticket.index') !!}"><i class="fa fa-support fa-fw"></i>Support tickets</a>
                     <a href="{!! route('admin.blog.index') !!}"><i class="fa fa-support fa-fw"></i>Blog</a>
                 </li>

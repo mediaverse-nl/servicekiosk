@@ -6,14 +6,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-3">
-                <div class="list-group">
-                    <a href="#" class="list-group-item">Systemen</a>
-                    <a href="#" class="list-group-item">Account</a>
-                    <a href="#" class="list-group-item">Facturering</a>
-                    <a href="{{route('panel.ticket')}}" class="list-group-item active">Tickets</a>
-                </div>
-            </div>
+            @include('layouts.panel-group-menu')
             <div class="col-sm-9 pull-right">
                 <div class="panel panel-default">
                     <div class="panel-heading">

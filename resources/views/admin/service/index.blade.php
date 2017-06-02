@@ -1,37 +1,31 @@
 @extends('layouts.admin')
 
-@section('title', 'Nieuws')
+@section('title', 'Services')
 
 @section('content')
 
-    <!-- /.row -->
+    {{--    {{dd($mollie->customersMandates())}}--}}
     <div class="container">
         <div class="row">
-            <div class="col-sm-9">
+            <div class="col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th>Titel</th>
-                                    <th>Aangemaakt</th>
-                                    <th>Door</th>
+                                    <th>#</th>
+                                    <th>Naam</th>
+                                    <th>Beschrijving</th>
                                     <th>Opties</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($blog as $b)
+                                @foreach($service as $s)
                                     <tr>
-                                        <td>
-                                            {!! $b->titel !!}
-                                        </td>
-                                        <td>
-                                            {!! $b->created_at !!}
-                                        </td>
-                                        <td>
-                                            {!! $b->user->name !!}
-                                        </td>
+                                        <th scope="row">{!! $s->id !!}</th>
+                                        <td>{!! $s->name !!}</td>
+                                        <td>{!! $s->description !!}</td>
                                         <td>
                                             <div class="__web-inspector-hide-shortcut__">
                                                 <div class="btn-group">
@@ -41,10 +35,10 @@
                                                     </button>
                                                     <ul class="dropdown-menu pull-right" role="menu">
                                                         <li>
-                                                            <a href="{!! route('admin.blog.update', $b->id) !!}">Wijzigen</a>
+                                                            <a href="{!! route('admin.service.view', $s->id) !!}">Wijzigen</a>
                                                         </li>
                                                         <li>
-                                                            <a href="{!! route('admin.blog.delete', $b->id) !!}">Verwijderen</a>
+                                                            <a href="{!! route('admin.service.destroy', $s->id) !!}">Verwijderen</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -54,18 +48,11 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                            <a href="{!! route('admin.blog.create') !!}" class="btn btn-default">Nieuw</a>
+                            <a href="{!! route('admin.service.create') !!}" class="btn btn-default">Nieuwe service</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- /.row -->
-    <div class="row">
-        <div class="col-lg-8">
-
         </div>
     </div>
 

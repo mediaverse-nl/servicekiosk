@@ -68,19 +68,39 @@ Route::post('/contact', ['uses' => 'ContactController@store'])->name('contact.st
             Route::delete('/delete/{id}', ['uses' => 'ClientController@destroy'])->name('delete');
         });
 
-        Route::get('/blog', ['uses' => 'BlogController@index'])->name('blog.index');
-        Route::get('/blog/create', ['uses' => 'BlogController@create'])->name('blog.create');
-        Route::post('/blog/create', ['uses' => 'BlogController@store'])->name('blog.create');;
-        Route::get('/blog/update/{id}', ['uses' => 'BlogController@edit'])->name('blog.update');
-        Route::patch('/blog/update/{id}', ['uses' => 'BlogController@update'])->name('blog.update');
-        Route::get('/blog/delete/{id}', ['uses' => 'BlogController@destroy'])->name('blog.delete');
+        Route::group(['prefix' => 'blog', 'as' => 'blog.'], function(){
+            Route::get('/', ['uses' => 'BlogController@index'])->name('index');
+            Route::get('/create', ['uses' => 'BlogController@create'])->name('create');
+            Route::post('/create', ['uses' => 'BlogController@store'])->name('create');;
+            Route::get('/update/{id}', ['uses' => 'BlogController@edit'])->name('update');
+            Route::patch('/update/{id}', ['uses' => 'BlogController@update'])->name('update');
+            Route::get('/delete/{id}', ['uses' => 'BlogController@destroy'])->name('delete');
+        });
 
 //        Route::get('/order', ['uses' => 'OrderController@index'])->name('order.index');
 
-        Route::group(['prefix' => 'ticket'], function(){
-            Route::get('/', ['uses' => 'TicketController@index'])->name('ticket.index');
-            Route::get('/view/{id}', ['uses' => 'TicketController@view'])->name('ticket.view');
-            Route::post('/view/{id}', ['uses' => 'TicketController@store'])->name('ticket.store');
+        Route::group(['prefix' => 'ticket', 'as' => 'ticket.'], function(){
+            Route::get('/', ['uses' => 'TicketController@index'])->name('index');
+            Route::get('/view/{id}', ['uses' => 'TicketController@view'])->name('view');
+            Route::post('/view/{id}', ['uses' => 'TicketController@store'])->name('store');
+        });
+
+        Route::group(['prefix' => 'product', 'as' => 'product.'], function(){
+            Route::get('/', ['uses' => 'ProductController@index'])->name('index');
+            Route::get('/view/{id}', ['uses' => 'ProductController@show'])->name('view');
+            Route::patch('/view/{id}', ['uses' => 'ProductController@update'])->name('view');
+            Route::get('/create', ['uses' => 'ProductController@create'])->name('create');
+            Route::post('/create', ['uses' => 'ProductController@store'])->name('store');
+            Route::get('/delete/{id}', ['uses' => 'ProductController@destroy'])->name('destroy');
+        });
+
+        Route::group(['prefix' => 'service', 'as' => 'service.'], function(){
+            Route::get('/', ['uses' => 'ServiceController@index'])->name('index');
+            Route::get('/view/{id}', ['uses' => 'ServiceController@show'])->name('view');
+            Route::patch('/view/{id}', ['uses' => 'ServiceController@update'])->name('view');
+            Route::get('/create', ['uses' => 'ServiceController@create'])->name('create');
+            Route::post('/create', ['uses' => 'ServiceController@store'])->name('store');
+            Route::get('/delete/{id}', ['uses' => 'ServiceController@destroy'])->name('destroy');
         });
 //        Route::group(['prefix' => 'client', 'as' => 'client.'], function () {
 //            Route::get('/', ['uses' => 'ClientController@index'])->name('index');
@@ -104,6 +124,13 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'panel'], function () {
         Route::get('/create', ['uses' => 'TicketController@create'])->name('panel.ticket.create');
         Route::post('/create', ['uses' => 'TicketController@save'])->name('panel.ticket.create');
     });
+
+    Route::group(['prefix' => 'account', 'as' => 'panel.account.'], function(){
+        Route::get('/', ['uses' => 'AccountController@index'])->name('index');
+        Route::patch('/update/{id}', ['uses' => 'AccountController@update'])->name('update');
+    });
+
+//    Route::post('/panel/account/password', ['uses' => 'PasswordController'])->name('panel.password');
 
     Route::get('/view/{id}', ['uses' => 'TicketController@view'])->name('panel.view');
     Route::post('/view/{id}', ['uses' => 'TicketController@store'])->name('panel.store');
