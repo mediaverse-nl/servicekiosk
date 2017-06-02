@@ -77,7 +77,7 @@ Route::post('/contact', ['uses' => 'ContactController@store'])->name('contact.st
             Route::get('/delete/{id}', ['uses' => 'BlogController@destroy'])->name('delete');
         });
 
-//        Route::get('/order', ['uses' => 'OrderController@index'])->name('order.index');
+        Route::get('/order', ['uses' => 'OrderController@index'])->name('order.index');
 
         Route::group(['prefix' => 'ticket', 'as' => 'ticket.'], function(){
             Route::get('/', ['uses' => 'TicketController@index'])->name('index');

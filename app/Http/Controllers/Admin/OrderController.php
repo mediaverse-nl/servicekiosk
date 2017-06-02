@@ -11,7 +11,7 @@ class OrderController extends Controller
 
     public function __construct()
     {
-        $this->order = new Order();
+//        $this->order = new Order();
     }
 
     /**
@@ -21,7 +21,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view('admin.order.index')->with('order', $this->order);
+        return view('admin.order.index');
     }
 
 
