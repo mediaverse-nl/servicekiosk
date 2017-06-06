@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Blog;
+use App\Http\Controllers\RulesController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -46,12 +47,12 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        $rules = [
-            'titel' => 'required',
-            'tekst' => 'required|min:10'
-        ];
+//        $rules = [
+//            'titel' => 'required',
+//            'tekst' => 'required|min:10'
+//        ];
 
-        $validator = Validator::make($request->all(), $rules);
+        $validator = Validator::make($request->all(), RulesController::BlogAdminStore());
 
         if($validator->fails()){
             return redirect()
@@ -104,12 +105,12 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $rules = [
-            'titel' => 'required',
-            'tekst' => 'required|min:10'
-        ];
+//        $rules = [
+//            'titel' => 'required',
+//            'tekst' => 'required|min:10'
+//        ];
 
-        $validator = Validator::make($request->all(), $rules);
+        $validator = Validator::make($request->all(), RulesController::BlogAdminUpdate());
 
         if($validator->fails()){
             return redirect()

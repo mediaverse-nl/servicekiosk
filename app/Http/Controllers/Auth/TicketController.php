@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\RulesController;
 use App\Message;
 use App\Role;
 use App\Ticket;
@@ -95,13 +96,13 @@ class TicketController extends Controller
 
     public function save(Request $request)
     {
-        $rules = [
-            'onderwerp' => 'required|min:3',
-            'probleem' => 'required|min:10',
-            'prioriteit' => 'required'
-        ];
+//        $rules = [
+//            'onderwerp' => 'required|min:3',
+//            'probleem' => 'required|min:10',
+//            'prioriteit' => 'required'
+//        ];
 
-        $validator = Validator::make($request->all(), $rules);
+        $validator = Validator::make($request->all(), RulesController::TicketAuthSave());
 
         if ($validator->fails()) {
             return redirect()
@@ -131,11 +132,11 @@ class TicketController extends Controller
      */
     public function store(Request $request, $id)
     {
-        $rules = [
-            'antwoord' => 'required',
-        ];
+//        $rules = [
+//            'antwoord' => 'required',
+//        ];
 
-        $validator = Validator::make($request->all(), $rules);
+        $validator = Validator::make($request->all(), RulesController::TicketAuthStore());
 
         if($validator->fails()){
             return redirect()

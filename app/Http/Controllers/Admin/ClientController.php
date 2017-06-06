@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\RulesController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -91,16 +92,16 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $rules = [
-            'adress' => 'required|max:120',
-            'zipcode' => 'required|min:6|max:6',
-            'city' => 'required|max:80',
-            'companyname' => 'required',
-            'kvk' => 'required|max:30',
-            'vatnumber' => 'required|max:30',
-        ];
+//        $rules = [
+//            'adress' => 'required|max:120',
+//            'zipcode' => 'required|min:6|max:6',
+//            'city' => 'required|max:80',
+//            'companyname' => 'required',
+//            'kvk' => 'required|max:30',
+//            'vatnumber' => 'required|max:30',
+//        ];
 
-        $validator = Validator::make($request->all(), $rules);
+        $validator = Validator::make($request->all(), RulesController::ClientAdminUpdate());
 
         if($validator->fails()){
             return redirect()

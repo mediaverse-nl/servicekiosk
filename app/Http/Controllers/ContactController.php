@@ -24,13 +24,13 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $rules = [
-            'Naam => required|min:5',
-            'mail => required|email',
-            'Bericht => required|min:50'
-        ];
+//        $rules = [
+//            'Naam => required|min:5',
+//            'mail => required|email',
+//            'Bericht => required|min:50'
+//        ];
 
-        $validator = \Validator::make($request->all(), $rules);
+        $validator = \Validator::make($request->all(), RulesController::ContactStore());
 
         if($validator->fails()){
             return redirect()

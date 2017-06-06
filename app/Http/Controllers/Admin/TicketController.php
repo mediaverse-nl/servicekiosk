@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\RulesController;
 use App\Message;
 use App\Ticket;
 use App\User;
@@ -69,11 +70,11 @@ class TicketController extends Controller
      */
     public function store(Request $request, $id)
     {
-        $rules = [
-            'antwoord' => 'required|min:10'
-        ];
+//        $rules = [
+//            'antwoord' => 'required|min:10'
+//        ];
 
-        $validator = Validator::make($request->all(), $rules);
+        $validator = Validator::make($request->all(), RulesController::TicketAdminStore());
 
         if($validator->fails()){
             return redirect()

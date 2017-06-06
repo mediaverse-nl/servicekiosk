@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Client;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\RulesController;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -86,20 +87,20 @@ class AccountController extends Controller
     public function update(Request $request, $id)
     {
 //        dd(Auth::user());
-        $rules = [
-            'email' => 'required',
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'phonenumber' => 'required',
-            'adress' => 'required',
-            'zipcode' => 'required',
-            'city' => 'required',
-            'companyname' => 'required',
-            'kvk' => 'required',
-            'vatnumber' => 'required'
-        ];
+//        $rules = [
+//            'email' => 'required|email',
+//            'firstname' => 'required|string',
+//            'lastname' => 'required|string',
+//            'phonenumber' => 'required|int|min:10|max:11',
+//            'adress' => 'required|',
+//            'zipcode' => 'required|max:6',
+//            'city' => 'required',
+//            'companyname' => 'required',
+//            'kvk' => 'required',
+//            'vatnumber' => 'required'
+//        ];
 
-        $validator = Validator::make($request->all(), $rules);
+        $validator = Validator::make($request->all(), RulesController::AccountAuthUpdate());
 
         if ($validator->fails()) {
             return redirect()

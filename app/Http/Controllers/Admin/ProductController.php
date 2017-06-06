@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\RulesController;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -44,13 +45,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $rules = [
-            'name' => 'required',
-            'description' => 'required',
-            'status' => 'required'
-        ];
+//        $rules = [
+//            'name' => 'required',
+//            'description' => 'required',
+//            'status' => 'required'
+//        ];
 
-        $validator = Validator::make($request->all(), $rules);
+        $validator = Validator::make($request->all(), RulesController::ProductAdminStore());
 
         if($validator->fails()){
             return redirect()
@@ -101,13 +102,13 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $rules = [
-            'name' => 'required',
-            'description' => 'required',
-            'status' => 'required'
-        ];
+//        $rules = [
+//            'name' => 'required',
+//            'description' => 'required',
+//            'status' => 'required'
+//        ];
 
-        $validator = Validator::make($request->all(), $rules);
+        $validator = Validator::make($request->all(), RulesController::ProductAdminUpdate());
 
         if($validator->fails()){
             return redirect()

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\RulesController;
 use App\service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class ServiceController extends Controller
 {
@@ -44,12 +46,12 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        $rules = [
-            'name' => 'required',
-            'description' => 'required'
-        ];
+//        $rules = [
+//            'name' => 'required',
+//            'description' => 'required'
+//        ];
 
-        $validator = Validator::make($request->all(), $rules);
+        $validator = Validator::make($request->all(), RulesController::ServiceAdminStore());
 
         if($validator->fails()){
             return redirect()
@@ -99,12 +101,12 @@ class ServiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $rules = [
-            'name' => 'required',
-            'description' => 'required'
-        ];
+//        $rules = [
+//            'name' => 'required',
+//            'description' => 'required'
+//        ];
 
-        $validator = Validator::make($request->all(), $rules);
+        $validator = Validator::make($request->all(), RulesController::ServiceAdminUpdate());
 
         if($validator->fails()){
             return redirect()
