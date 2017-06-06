@@ -323,10 +323,15 @@
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
-                    <a href="{!! route('admin.order.index') !!}"><i class="fa fa-support fa-fw"></i>Bestellingen</a>
-                    <a href="{!! route('admin.product.index') !!}"><i class="fa fa-support fa-fw"></i>Producten</a>
+                    <a href="{!! route('admin.subscription.index') !!}"><i class="fa fa-support fa-fw"></i>Subscriptions</a>
+                </li>
+                <li>
                     <a href="{!! route('admin.service.index') !!}"><i class="fa fa-support fa-fw"></i>Services</a>
+                </li>
+                <li>
                     <a href="{!! route('admin.ticket.index') !!}"><i class="fa fa-support fa-fw"></i>Support tickets</a>
+                </li>
+                <li>
                     <a href="{!! route('admin.blog.index') !!}"><i class="fa fa-rss fa-fw"></i>Blog</a>
                 </li>
             </ul>

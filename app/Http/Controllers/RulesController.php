@@ -7,9 +7,9 @@ class RulesController extends Controller
     public static function ContactStore()
     {
         return [
-            'Naam => required|min:5',
-            'mail => required|email',
-            'Bericht => required|min:50'
+            'Naam' => 'required|min:4',
+            'mail' => 'required|email',
+            'Bericht' => 'required|min:50'
         ];
     }
 
@@ -17,10 +17,10 @@ class RulesController extends Controller
     {
         return [
             'email' => 'required|email',
-            'firstname' => 'required|string',
-            'lastname' => 'required|string',
+            'firstname' => 'required|string|min:4',
+            'lastname' => 'required|string|min:4',
             'phonenumber' => 'required|int|min:10|max:11',
-            'adress' => 'required|',
+            'adress' => 'required',
             'zipcode' => 'required|max:6',
             'city' => 'required',
             'companyname' => 'required',
@@ -76,8 +76,8 @@ class RulesController extends Controller
     public static function ProductAdminStore()
     {
         return [
-            'name' => 'required',
-            'description' => 'required',
+            'name' => 'required|min:4',
+            'description' => 'required|min:50',
             'status' => 'required'
         ];
     }
@@ -85,8 +85,8 @@ class RulesController extends Controller
     public static function ProductAdminUpdate()
     {
         return [
-            'name' => 'required',
-            'description' => 'required',
+            'name' => 'required|min:4',
+            'description' => 'required|min:50',
             'status' => 'required'
         ];
     }
@@ -94,16 +94,16 @@ class RulesController extends Controller
     public static function ServiceAdminStore()
     {
         return [
-            'name' => 'required',
-            'description' => 'required'
+            'name' => 'required|min:4',
+            'description' => 'required|min:50'
         ];
     }
 
     public static function ServiceAdminUpdate()
     {
         return [
-            'name' => 'required',
-            'description' => 'required'
+            'name' => 'required|min:4',
+            'description' => 'required|min:50'
         ];
     }
 
@@ -111,6 +111,24 @@ class RulesController extends Controller
     {
         return [
             'antwoord' => 'required|min:10'
+        ];
+    }
+
+    public static function SubscriptionAdminStore()
+    {
+        return [
+            'name' => 'required',
+            'duration' => 'required|int',
+            'price' => 'required|int'
+        ];
+    }
+
+    public static function SubscriptionAdminUpdate()
+    {
+        return [
+            'name' => 'required',
+            'duration' => 'required|int',
+            'price' => 'required'
         ];
     }
 }

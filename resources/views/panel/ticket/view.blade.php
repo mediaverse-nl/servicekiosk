@@ -51,7 +51,7 @@
                     @endforeach
                     <div class="panel" style="margin-top: 20px;">
                         <div class="panel-body">
-                            @if(\Auth::check())
+                            @if(\Auth::check() && $ticket->first()->status != 'completed')
                                 {{ Form::open(['class' => 'form-horizontal', 'route' => ['panel.store', $ticket->first()->id]]) }}
 
                                 {{ Form::label('Antwoord', 'Antwoord:', ['class' => 'control-label']) }}
