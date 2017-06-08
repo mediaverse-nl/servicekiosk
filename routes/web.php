@@ -77,21 +77,33 @@ Route::post('/contact', ['uses' => 'ContactController@store'])->name('contact.st
             Route::get('/delete/{id}', ['uses' => 'BlogController@destroy'])->name('delete');
         });
 
-        Route::get('/order', ['uses' => 'OrderController@index'])->name('order.index');
-
         Route::group(['prefix' => 'ticket', 'as' => 'ticket.'], function(){
             Route::get('/', ['uses' => 'TicketController@index'])->name('index');
             Route::get('/view/{id}', ['uses' => 'TicketController@view'])->name('view');
             Route::post('/view/{id}', ['uses' => 'TicketController@store'])->name('store');
         });
 
-        Route::group(['prefix' => 'subscription', 'as' => 'subscription.'], function(){
-            Route::get('/', ['uses' => 'SubscriptionController@index'])->name('index');
-            Route::get('/view/{id}', ['uses' => 'SubscriptionController@show'])->name('view');
-            Route::patch('/view/{id}', ['uses' => 'SubscriptionController@update'])->name('update');
-            Route::get('/create', ['uses' => 'SubscriptionController@create'])->name('create');
-            Route::post('/create', ['uses' => 'SubscriptionController@store'])->name('store');
-            Route::get('/delete/{id}', ['uses' => 'SubscriptionController@destroy'])->name('destroy');
+        Route::group(['prefix' => 'sub', 'as' => 'subs.'], function(){
+            
+            Route::get('/', ['uses' => 'SubController'])->name('index');
+
+            Route::group(['prefix' => 'subscription', 'as' => 'subscription.'], function(){
+                Route::get('/', ['uses' => 'SubscriptionController@index'])->name('index');
+                Route::get('/view/{id}', ['uses' => 'SubscriptionController@show'])->name('view');
+                Route::patch('/view/{id}', ['uses' => 'SubscriptionController@update'])->name('update');
+                Route::get('/create', ['uses' => 'SubscriptionController@create'])->name('create');
+                Route::post('/create', ['uses' => 'SubscriptionController@store'])->name('store');
+                Route::get('/delete/{id}', ['uses' => 'SubscriptionController@destroy'])->name('destroy');
+            });
+
+            Route::group(['prefix' => 'subscriptiontype', 'as' => 'subscriptiontype.'], function(){
+                Route::get('/', ['uses' => 'SubscriptiontypeController@index'])->name('index');
+                Route::get('/view/{id}', ['uses' => 'SubscriptiontypeController@show'])->name('view');
+                Route::patch('/view/{id}', ['uses' => 'SubscriptiontypeController@update'])->name('update');
+                Route::get('/create', ['uses' => 'SubscriptiontypeController@create'])->name('create');
+                Route::post('/create', ['uses' => 'SubscriptiontypeController@store'])->name('store');
+                Route::get('/delete/{id}', ['uses' => 'SubscriptiontypeController@destroy'])->name('destroy');
+            });
         });
 
         Route::group(['prefix' => 'service', 'as' => 'service.'], function(){

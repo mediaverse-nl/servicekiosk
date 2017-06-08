@@ -100,6 +100,8 @@ class AccountController extends Controller
 //            'vatnumber' => 'required'
 //        ];
 
+//        dd($request->all());
+
         $validator = Validator::make($request->all(), RulesController::AccountAuthUpdate());
 
         if ($validator->fails()) {

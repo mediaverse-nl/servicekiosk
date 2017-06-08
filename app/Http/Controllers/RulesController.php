@@ -19,7 +19,7 @@ class RulesController extends Controller
             'email' => 'required|email',
             'firstname' => 'required|string|min:4',
             'lastname' => 'required|string|min:4',
-            'phonenumber' => 'required|int|min:10|max:11',
+            'phonenumber' => 'required|digits_between:10,12',
             'adress' => 'required',
             'zipcode' => 'required|max:6',
             'city' => 'required',

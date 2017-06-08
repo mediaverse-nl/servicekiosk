@@ -19,6 +19,7 @@
                                     <th>Duur</th>
                                     <th>Prijs</th>
                                     <th>Korting</th>
+                                    <th>Opties</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -48,10 +49,10 @@
                                                     </button>
                                                     <ul class="dropdown-menu pull-right" role="menu">
                                                         <li>
-                                                            <a href="{{route('admin.subscription.view', $s->id)}}">Wijzigen</a>
+                                                            <a href="{{route('admin.subs.subscriptiontype.view', $s->id)}}">Wijzigen</a>
                                                         </li>
                                                         <li>
-                                                            <a href="{{route('admin.subscription.destroy', $s->id)}}">Verwijderen</a>
+                                                            <a href="{{route('admin.subs.subscriptiontype.destroy', $s->id)}}">Verwijderen</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -61,7 +62,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                            <a href="{!! route('admin.subscription.create') !!}" class="btn btn-default">Nieuw subscription</a>
+                            <a href="{!! route('admin.subs.subscription.create') !!}" class="btn btn-default">Nieuw subscription</a>
                         </div>
                     </div>
                 </div>

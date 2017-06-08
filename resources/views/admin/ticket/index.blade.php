@@ -19,6 +19,7 @@
                                     <th>Aangemaakt</th>
                                     <th>Status</th>
                                     <th>Prioriteit</th>
+                                    <th>Opties</th>
                                 </tr>
                                 </thead>
                                 <tbody>

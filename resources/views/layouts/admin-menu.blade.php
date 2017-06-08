@@ -323,7 +323,7 @@
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
-                    <a href="{!! route('admin.subscription.index') !!}"><i class="fa fa-support fa-fw"></i>Subscriptions</a>
+                    <a href="{!! route('admin.subs.index') !!}"><i class="fa fa-support fa-fw"></i>Subscriptions</a>
                 </li>
                 <li>
                     <a href="{!! route('admin.service.index') !!}"><i class="fa fa-support fa-fw"></i>Services</a>

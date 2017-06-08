@@ -68,6 +68,25 @@
             background-color: #F8F8F8;
             border-radius: 0px;
         }
+
+        .dataTables_wrapper .dataTables_length {
+            float: left;
+        }
+        .dataTables_wrapper .dataTables_filter {
+            float: right;
+            text-align: left;
+        }
+        .dataTables_wrapper .dataTables_paginate  {
+            float: right;
+            text-align: left;
+        }
+        .dataTables_wrapper .dataTables_info  {
+            float: left;
+            text-align: left;
+        }
+        .pagination{
+            margin: 0px;
+        }
     </style>
 
     <!-- Scripts -->
@@ -103,6 +122,27 @@
     <script src="{{ asset('js/app.js') }}"></script>
     {{--<script src="http://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/3.3.7+1/js/sb-admin-2.min.js"></script>--}}
     <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.0/metisMenu.min.js"></script>
+
+
+
+<!-- Bootstrap Core JavaScript -->
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+{{--<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>--}}
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{{-- datatabes --}}
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/3.3.7+1/js/sb-admin-2.js"></script>--}}
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/3.3.7+1/js/sb-admin-2.min.js"></script>--}}
+
+{{-- javascript money mask on inputs --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.min.js"></script>
+{{-- datatabes --}}
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.js"></script>
 <script>
     $(".alert").delay(4000).fadeOut(400, function() {
         $(this).alert('close');
@@ -113,5 +153,15 @@
             $('#side-menu').metisMenu();
         });
     </script>
+<script>
+    $('.table').DataTable({
+        "oLanguage": {
+            "sUrl": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Dutch.json"
+        },
+        "order": [[ 0, "desc" ]],
+//            "scrollX": false,
+        "dom":' <"search"f> <"class"><"top"l>rt<"bottom"ip><"clear">'
+    });
+</script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Subscription')
+@section('title', 'Nieuw subscription type')
 
 @section('content')
 
@@ -11,11 +11,11 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="table-responsive">
-                            {!! Form::model($subscription, ['class' => 'form-horizontal', 'route' => ['admin.subscription.update', $subscription->id], 'method' => 'patch']) !!}
+                            {!! Form::open(['class' => 'form-horizontal', 'route' => ['admin.sub.subscription.store']]) !!}
                             {!! Form::label('Naam', 'Naam:', ['class' => 'control-label']) !!}
-                            {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                            {!! Form::text('name', '', ['class' => 'form-control']) !!}
                             {!! Form::label('Duur', 'Duur in maanden:', ['class' => 'control-label']) !!}
-                            {!! Form::select('duration', $dates, null, ['class' => 'form-control']) !!}
+                            {!! Form::select('duration', $dates, '1', ['class' => 'form-control']) !!}
                             {!! Form::label('Prijs', 'Prijs:', ['class' => 'control-label']) !!}
                             {!! Form::text('price', null, ['class' => 'form-control']) !!}
                             {!! Form::label('Korting', 'Korting:', ['class' => 'control-label']) !!}
