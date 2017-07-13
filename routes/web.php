@@ -28,9 +28,12 @@ Route::get('/downloads', ['uses' => 'DownloadController@index'])->name('download
 
 //Route::group(['prefix' => 'api/v1', 'as' => 'api.', 'middleware' => 'token'], function () {
 Route::group(['prefix' => 'api/v1', 'as' => 'api.'], function () {
-    Route::get('/loadbuttons', ['uses' => 'ApiController@loadButton']);
+    Route::post('/loadbuttons', ['uses' => 'ApiController@loadButton']);
     Route::post('/postbuttons', ['uses' => 'ApiController@postButton']);
     Route::post('/login', ['uses' => 'ApiController@authenticate']);
+    Route::get('/imei', 'ApiController@getImei');
+    Route::post('/deletebuttons', 'ApiController@deleteButton');
+    Route::get('/serialkey', 'ApiController@serialKey');
 });
 
 //'headers' => [
