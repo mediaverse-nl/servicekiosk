@@ -1,0 +1,226 @@
+@font-face {
+  font-family: 'Raund';
+  src: url('../fonts/Raund-Bold-webfont.eot');
+  src: url('../fonts/Raund-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+	   url('../fonts/Raund-Bold-webfont.woff2') format('woff2'),
+	   url('../fonts/Raund-Bold-webfont.woff') format('woff'),
+	   url('../fonts/Raund-Bold-webfont.ttf') format('truetype'), url('../fonts/Raund-Bold-webfont.svg#raundbold') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Raund';
+  src: url('../fonts/Raund-Italic-webfont.eot');
+  src: url('../fonts/Raund-Italic-webfont.eot?#iefix') format('embedded-opentype'), 
+	   url('../fonts/Raund-Italic-webfont.woff2') format('woff2'),
+	   url('../fonts/Raund-Italic-webfont.woff') format('woff'),
+	   url('../fonts/Raund-Italic-webfont.ttf') format('truetype'), url('../fonts/Raund-Italic-webfont.svg#raunditalic') format('svg');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Raund';
+  src: url('../fonts/Raund-webfont.eot');
+  src: url('../fonts/Raund-webfont.eot?#iefix') format('embedded-opentype'),
+	   url('../fonts/Raund-webfont.woff2') format('woff2'),
+	   url('../fonts/Raund-webfont.woff') format('woff'),
+	   url('../fonts/Raund-webfont.ttf') format('truetype'),
+	   url('../fonts/Raund-webfont.svg#raundregular') format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Raund', Arial, Helvetica, sans-serif;
+	background-color: black;
+}
+
+.section {
+	text-align: center;
+	color: #fff;
+}
+
+.section h2 {
+	margin: 0 0 20px 0;
+	font-size: 40px;
+}
+
+.section p {
+	margin: 0 0 15px 0;
+	font-size: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.section p:last-chilf {
+	margin: 0;
+}
+
+.slide {
+	padding: 0 60px;
+	color: white;
+}
+
+.slide:nth-child(1) {
+	background: #5c5d5e;
+}
+
+.slide:nth-child(2) {
+	background: #000000;
+}
+
+.slide:nth-child(3) {
+	background: #5c5d5e;
+}
+
+.slide:nth-child(4) {
+	background: #000000;
+}
+
+.fp-controlArrow.fp-next {
+	border-color: transparent transparent transparent #ffffff;
+}
+
+.fp-controlArrow.fp-prev {
+	border-color: transparent #ffffff transparent transparent;
+}
+
+.header {
+	width: 100%;
+	padding: 15px;
+	position: fixed;
+	top: 0;
+	z-index: 1000;
+	background: #000000;
+	box-shadow: rgba(0, 0, 0, 1) 0 0 7px;
+	margin:auto;
+	text-align:center;
+}
+
+.main-nav {}
+
+.main-nav ul {
+	margin: 0 -10px;
+	padding: 0;
+	list-style: none;
+}
+
+.main-nav li {
+	display: inline-block;
+	margin-right: -4px;
+	padding: 0 10px;
+}
+
+.main-nav a {
+	display: block;
+	font-size: 14px;
+	color: grey;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.main-nav .active a {
+	color: white;
+}
+
+iframe{
+	display:block;
+	height: 500px;
+	border:none;
+	width:250px;
+	text-align:center;
+	scrolling:no;
+}
+
+	
+input, select, textarea{
+    color: #000000;
+}
+
+#plaatje_paal{
+	position:relative;
+	width:40%;
+	float:left;
+	margin:auto;
+	text-align:center;
+}
+
+section{
+	width: 40%;
+	float: left;
+	margin:auto;
+	text-allign:center;
+}
+
+aside{
+	width:60%;
+	float:right;
+	margin: auto;
+	text-align:center;
+}
+
+img{
+	max-height: 100%;
+	max-width: 100%;
+}
+
+/*#pijl-hoogte{*/
+	/*position:absolute;*/
+	/*top: 0px;*/
+	/*left: 130px;*/
+	/*overflow:hidden;*/
+/*}*/
+
+/*#pijl-breedte{*/
+	/*position:absolute;*/
+	/*top: 430px;*/
+	/*left: 180px;*/
+	/*overflow:hidden;*/
+/*}*/
+
+/*#pijl-diepte{*/
+	/*position:absolute;*/
+	/*top: 400px;*/
+	/*left: 300px;*/
+	/*overflow:hidden;*/
+/*}*/
+
+/*.button{*/
+	/*background-color: black;*/
+/*}*/
+
+
+
+
+@media (min-width:768px) {
+	.section h2 {
+		font-size: 60px;
+	}
+
+	.section p {
+		font-size: 26px;
+	}
+
+	.header {
+		padding: 30px;
+	}
+
+	.main-nav a {
+		font-size: 18px;
+	}
+}
+
+@media (max-width:768px){
+	section{
+		width:100%;
+	}
+	aside{
+		width:100%;
+	}
+}
