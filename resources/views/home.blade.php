@@ -11,7 +11,7 @@
 
             <div id="intro">
                 <img src="/image/img-touch/title2.png"></br>
-                <img src="/image/img-touch/paal.png">
+                <img src="/image/img-touch/links.png">
             </div>
 
 
@@ -90,13 +90,12 @@
                         {{--<div id="pijl-hoogte"><img src="/image/img-touch/kleuren/lengte_pijl_maat.png"></div>--}}
                         {{--<div id="pijl-breedte"><img src="/image/img-touch/kleuren/breed_pijl_maat.png"></div>--}}
                         {{--<div id="pijl-diepte"><img src="/image/img-touch/kleuren/diepte_pijl_maat.png"></div>--}}
-                        <img src="/image/img-touch/kleuren/geen_kleur.png">
+
 
                     </div>
-                    <p>de lengte van de paal is 1,65 meter.</br>
-                        de breedte van de paal is 0,50 meter.</br>
-                        de diepte van de paal is 0,30 meter.</br>
-                        </br>
+                    <p>
+                        Hover over of klik op het plaatje om de maten te zien</br>
+                        als u meer maten wilt weten kunt u contact met ons opnemen via de contact pagina
                     </p>
                         {{--als je op de knop hieronder drukt verschijnen de maten naast de paal.--}}
                         {{--<button id="toggle" class="button">laat de maten zien</button>--}}

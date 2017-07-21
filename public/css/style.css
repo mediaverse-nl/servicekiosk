@@ -144,11 +144,17 @@ input, select, textarea{
 }
 
 #plaatje_paal{
+	transition: background-image 0.5s ease;
+	background-image: url('/image/img-touch/kleuren/geen_kleur2.png');
 	position:relative;
-	width:40%;
-	float:left;
+	width:250px;
+	height: 450px;
 	margin:auto;
 	text-align:center;
+}
+
+#plaatje_paal:hover {
+	background-image: url('/image/img-touch/kleuren/geen_kleur2_m.png');
 }
 
 section{
@@ -169,6 +175,7 @@ img{
 	max-height: 100%;
 	max-width: 100%;
 }
+
 
 /*#pijl-hoogte{*/
 	/*position:absolute;*/
