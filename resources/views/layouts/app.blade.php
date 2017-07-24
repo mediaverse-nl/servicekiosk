@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="/css/jquery.fullpage.css">
     <link rel="stylesheet" href="{{asset('/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('/css/animation.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/app.css')}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <style>
         html {
@@ -115,46 +117,138 @@
     </script>
 </head>
 <body>
+<header>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li data-menuanchor="firstSection">
+                <a href="#firstSection">Intro</a>
+                </li>
+                <li data-menuanchor="tenthSection">
+                <a href="#tenthSection">Waarom</a>
+                </li>
+                <li data-menuanchor="secondSection">
+                <a href="#secondSection">Intenties</a>
+                </li>
+                <li data-menuanchor="thirdSection">
+                <a href="#thirdSection">Dimensies</a>
+                </li>
+                <li data-menuanchor="fourthSection">
+                <a href="#fourthSection">Usp's</a>
+                </li>
+                <li data-menuanchor="fifthSection">
+                <a href="#fifthSection">Branches</a>
+                </li>
+                <li data-menuanchor="sixthSection">
+                <a href="#sixthSection">Kleuren</a>
+                </li>
+                <li data-menuanchor="seventhSection">
+                <a href="#seventhSection">Testemonials</a>
+                </li>
+                <li data-menuanchor="eighthSection">
+                <a href="#eighthSection">Contact</a>
+                </li>
+                <li data-menuanchor="ninethSection">
+                <a href="#ninethSection">Map</a>
+                </li>
+            </ul>
+        </div>
+</nav>
+</header>
     <div>
         @include('errors.message')
-        <div class="header">
-            <nav class="main-nav">
-                <ul>
-                    <li data-menuanchor="firstSection">
-                        <a href="#firstSection">Intro</a>
-                    </li>
 
-                    <li data-menuanchor="tenthSection">
-                        <a href="#tenthSection">Waarom</a>
-                    </li>
 
-                    <li data-menuanchor="secondSection">
-                        <a href="#secondSection">Intenties</a>
-                    </li>
-                    <li data-menuanchor="thirdSection">
-                        <a href="#thirdSection">Dimensies</a>
-                    </li>
-                    <li data-menuanchor="fourthSection">
-                        <a href="#fourthSection">Usp's</a>
-                    </li>
-                    <li data-menuanchor="fifthSection">
-                        <a href="#fifthSection">Branches</a>
-                    </li>
-                    <li data-menuanchor="sixthSection">
-                        <a href="#sixthSection">Kleuren</a>
-                    </li>
-                    <li data-menuanchor="seventhSection">
-                        <a href="#seventhSection">Testemonials</a>
-                    </li>
-                    <li data-menuanchor="eighthSection">
-                        <a href="#eighthSection">Contact</a>
-                    </li>
-                    <li data-menuanchor="ninethSection">
-                        <a href="#ninethSection">Map</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+        {{--<div class="header">--}}
+            {{--<nav class="navbar navbar-default">--}}
+                {{--<div class="container-fluid">--}}
+                    {{--<div class="navbar-header">--}}
+                    {{--</div>--}}
+                    {{--<ul class="nav navbar-nav">--}}
+                        {{--<li data-menuanchor="firstSection">--}}
+                            {{--<a href="#firstSection">Intro</a>--}}
+                        {{--</li>--}}
+                        {{--<li data-menuanchor="tenthSection">--}}
+                            {{--<a href="#tenthSection">Waarom</a>--}}
+                        {{--</li>--}}
+                        {{--<li data-menuanchor="secondSection">--}}
+                            {{--<a href="#secondSection">Intenties</a>--}}
+                        {{--</li>--}}
+                        {{--<li data-menuanchor="thirdSection">--}}
+                            {{--<a href="#thirdSection">Dimensies</a>--}}
+                        {{--</li>--}}
+                        {{--<li data-menuanchor="fourthSection">--}}
+                            {{--<a href="#fourthSection">Usp's</a>--}}
+                        {{--</li>--}}
+                        {{--<li data-menuanchor="fifthSection">--}}
+                            {{--<a href="#fifthSection">Branches</a>--}}
+                        {{--</li>--}}
+                        {{--<li data-menuanchor="sixthSection">--}}
+                            {{--<a href="#sixthSection">Kleuren</a>--}}
+                        {{--</li>--}}
+                        {{--<li data-menuanchor="seventhSection">--}}
+                            {{--<a href="#seventhSection">Testemonials</a>--}}
+                        {{--</li>--}}
+                        {{--<li data-menuanchor="eighthSection">--}}
+                            {{--<a href="#eighthSection">Contact</a>--}}
+                        {{--</li>--}}
+                        {{--<li data-menuanchor="ninethSection">--}}
+                            {{--<a href="#ninethSection">Map</a>--}}
+                        {{--</li>--}}
+                    {{--</ul>--}}
+                {{--</div>--}}
+            {{--</nav>--}}
+            {{--<nav class="main-nav">--}}
+                {{--<ul>--}}
+                    {{--<li data-menuanchor="firstSection">--}}
+                        {{--<a href="#firstSection">Intro</a>--}}
+                    {{--</li>--}}
+
+                    {{--<li data-menuanchor="tenthSection">--}}
+                        {{--<a href="#tenthSection">Waarom</a>--}}
+                    {{--</li>--}}
+
+                    {{--<li data-menuanchor="secondSection">--}}
+                        {{--<a href="#secondSection">Intenties</a>--}}
+                    {{--</li>--}}
+                    {{--<li data-menuanchor="thirdSection">--}}
+                        {{--<a href="#thirdSection">Dimensies</a>--}}
+                    {{--</li>--}}
+                    {{--<li data-menuanchor="fourthSection">--}}
+                        {{--<a href="#fourthSection">Usp's</a>--}}
+                    {{--</li>--}}
+                    {{--<li data-menuanchor="fifthSection">--}}
+                        {{--<a href="#fifthSection">Branches</a>--}}
+                    {{--</li>--}}
+                    {{--<li data-menuanchor="sixthSection">--}}
+                        {{--<a href="#sixthSection">Kleuren</a>--}}
+                    {{--</li>--}}
+                    {{--<li data-menuanchor="seventhSection">--}}
+                        {{--<a href="#seventhSection">Testemonials</a>--}}
+                    {{--</li>--}}
+                    {{--<li data-menuanchor="eighthSection">--}}
+                        {{--<a href="#eighthSection">Contact</a>--}}
+                    {{--</li>--}}
+                    {{--<li data-menuanchor="ninethSection">--}}
+                        {{--<a href="#ninethSection">Map</a>--}}
+                    {{--</li>--}}
+                {{--</ul>--}}
+            {{--</nav>--}}
+        {{--</div>--}}
+
+
+
 
         <div id="main">
             <div>
@@ -171,6 +265,8 @@
     <!-- Scripts -->
     <script src="{{ asset('/js/scripts.js') }}"></script>
     <script src="{{ asset('/js/jquery.fullpage.min.js.js') }}"></script>
+    <script src="{{ asset('/js/app.js') }}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     @stack('js')
 

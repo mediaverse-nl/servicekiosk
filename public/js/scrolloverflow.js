@@ -308,7 +308,7 @@ function IScroll (el, options) {
         momentum: true,
 
         bounce: true,
-        bounceTime: 600,
+        bounceTime: 300,
         bounceEasing: '',
 
         preventDefault: true,
@@ -2097,7 +2097,7 @@ Indicator.prototype = {
         this.fadeTimeout = null;
 
         var time = val ? 250 : 500,
-            delay = val ? 0 : 300;
+            delay = val ? 0 : 50;
 
         val = val ? '1' : '0';
 
