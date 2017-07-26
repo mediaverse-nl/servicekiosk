@@ -10,8 +10,8 @@
         <div class="section section-one">
 
             <div id="intro">
-                <img src="/image/img-touch/title2.png"></br>
-                <img src="/image/img-touch/links.png">
+                <div id="titel"><img src="/image/img-touch/title2.png"></div></br>
+                <div id="zuil"><img src="/image/img-touch/links.png"></div>
             </div>
             <a href="#tenthSection"><img class="pijltje_next" src="/image/img-touch/pijltje_page_down.png" ></a>
 
