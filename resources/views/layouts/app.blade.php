@@ -132,34 +132,34 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li data-menuanchor="firstSection">
+                <li data-menuanchor="introductie">
                 <a href="#firstSection">Intro</a>
                 </li>
-                <li data-menuanchor="tenthSection">
+                <li data-menuanchor="waarom">
                 <a href="#tenthSection">Waarom</a>
                 </li>
-                <li data-menuanchor="secondSection">
+                <li data-menuanchor="intentie">
                 <a href="#secondSection">Intenties</a>
                 </li>
-                <li data-menuanchor="thirdSection">
+                <li data-menuanchor="Dimensies">
                 <a href="#thirdSection">Dimensies</a>
                 </li>
-                <li data-menuanchor="fourthSection">
+                <li data-menuanchor="usp">
                 <a href="#fourthSection">Usp's</a>
                 </li>
-                <li data-menuanchor="fifthSection">
+                <li data-menuanchor="branches">
                 <a href="#fifthSection">Branches</a>
                 </li>
-                <li data-menuanchor="sixthSection">
+                <li data-menuanchor="kleuren">
                 <a href="#sixthSection">Kleuren</a>
                 </li>
-                <li data-menuanchor="seventhSection">
-                <a href="#seventhSection">Testemonials</a>
+                <li data-menuanchor="testimonials">
+                <a href="#seventhSection">Testimonials</a>
                 </li>
-                <li data-menuanchor="eighthSection">
+                <li data-menuanchor="contact">
                 <a href="#eighthSection">Contact</a>
                 </li>
-                <li data-menuanchor="ninethSection">
+                <li data-menuanchor="maps">
                 <a href="#ninethSection">Map</a>
                 </li>
             </ul>

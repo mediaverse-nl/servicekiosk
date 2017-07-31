@@ -138,15 +138,33 @@ iframe{
 	scrolling:no;
 }
 
-	
+input, select, textarea{
+	color: black;
+}
+
+#subject{
+	height:200px;
+}
+
+textarea:focus, input:focus {
+	color: black;
+}
+
+input[type=text]{
+	color: black;
+
+
+	-webkit-text-fill-color:black
+
+
+}
+
 input, select, textarea{
     color: black;
 	width:80%;
 	border-radius: 4px;
 }
-input[type=text]:focus {
-	background-color: black;
-}
+
 
 input[type=button], input[type=submit], input[type=reset] {
 	background-color: black;
@@ -342,3 +360,4 @@ img{
 		text-align: center;
 	}
 }
+

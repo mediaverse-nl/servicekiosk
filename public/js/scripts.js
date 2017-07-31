@@ -4,5 +4,8 @@ $(document).ready(function() {
 		anchors:['firstSection','tenthSection' , 'secondSection', 'thirdSection', 'fourthSection', 'fifthSection', 'sixthSection', 'seventhSection', 'eighthSection', 'ninethSection'],
         autoScrolling: false,
 		menu: '.main-nav ul',
+        fitToSectionDelay: 300,
+        resetSliders: true,
+		navigation: false,
 	});
 });

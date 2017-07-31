@@ -233,7 +233,7 @@
                     <input type="text" id="lname" name="lastname" placeholder="achternaam"></br>
 
                     <label for="subject"><p>Onderwerp:</p></label></br>
-                    <textarea id="subject" name="subject" placeholder="schrijf hier iets" style="height:200px"></textarea></br>
+                    <textarea id="subject" style="color:black" name="subject" placeholder="schrijf hier iets"></textarea></br>
 
                     <input type="submit" value="Stuur">
 
@@ -273,7 +273,7 @@
 
         <div class="section section-three">
             <h1>Map</h1>
-            <img src="/image/img-touch/maps.png">
+            <div id="googleMap" style="width:100%;height:400px;"></div>
             <p>Showroom:</br>
                 Daalakkersweg 2.182, 5641 JA Eindhoven</p>
         </div>
@@ -330,6 +330,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
+
+
     <script>
         $(document).ready(function(){
             $('.slider-banner').slick({
@@ -338,6 +340,24 @@
     //            $('.slider-contact').focus();
         });
     </script>
+
+
+
+<script>
+    function myMap() {
+        var mapCanvas = document.getElementById("googleMap");
+        var myCenter = new google.maps.LatLng(51.447337,5.524042);
+        var mapOptions = {center: myCenter, zoom: 15};
+        var map = new google.maps.Map(mapCanvas,mapOptions);
+        var marker = new google.maps.Marker({
+            position: myCenter,
+            animation: google.maps.Animation.BOUNCE
+        });
+        marker.setMap(map);
+    }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC0vHSxLEoBqDOZYurlLBPo2yeEAplGak&callback=myMap"></script>
 
 
 @endpush
