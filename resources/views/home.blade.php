@@ -86,7 +86,7 @@
 
 
                 <div id="dimensies">
-                    <div id="plaatje_paal">
+                    <div id="plaatje_paal" class="verstopt">
                         {{--TODO animeren--}}
                         {{--<div id="pijl-hoogte"><img src="/image/img-touch/kleuren/lengte_pijl_maat.png"></div>--}}
                         {{--<div id="pijl-breedte"><img src="/image/img-touch/kleuren/breed_pijl_maat.png"></div>--}}
@@ -95,7 +95,7 @@
 
                     </div>
                     <p>
-                        Beweeg je muis over of klik op het plaatje om de maten te zien.</br>
+                        Klik op het plaatje om de maten te zien.</br>
                         Als u meer maten wilt weten kunt u contact met ons opnemen via de contact pagina.
                     </p>
                         {{--als je op de knop hieronder drukt verschijnen de maten naast de paal.--}}
@@ -249,7 +249,6 @@
                     - ...............</br>
                     - ....................</br>
                     - ........</br>
-                    </br>
                     De nieuwsbrief ontvangt u weekelijks via </br>
                     het mailadres dat u hieronder kan doorgeven.</p>
 
@@ -355,6 +354,12 @@
         });
         marker.setMap(map);
     }
+</script>
+
+<script>
+    $('.verstopt').click(function() {
+        $(this).toggleClass('n-verstopt');
+    });
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC0vHSxLEoBqDOZYurlLBPo2yeEAplGak&callback=myMap"></script>
