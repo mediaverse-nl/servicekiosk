@@ -242,14 +242,8 @@
 
             <aside>
                 <div id="emaal">
-
+                </br>
                 <p>Hier kunt u zich inschrijven voor de nieuwsbrief. </br>
-                    Deze nieuwsbrief bevat:</br>
-                    - .........</br>
-                    - ...............</br>
-                    - ....................</br>
-                    - ........</br>
-                    De nieuwsbrief ontvangt u weekelijks via </br>
                     het mailadres dat u hieronder kan doorgeven.</p>
 
                 <div id="form_mailinglist">

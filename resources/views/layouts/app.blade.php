@@ -131,6 +131,7 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="list-inline text-center">
             <ul class="nav navbar-nav">
                 <li data-menuanchor="introductie">
                 <a href="#firstSection">Intro</a>
@@ -163,6 +164,7 @@
                 <a href="#ninethSection">Map</a>
                 </li>
             </ul>
+            </div>
         </div>
 </nav>
 </header>

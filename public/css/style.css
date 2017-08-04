@@ -39,9 +39,12 @@
 body {
 	font-family:  Arial, Helvetica, sans-serif;
 	background-color: black;
+	padding-top: 30px !important;
 }
 
 .section {
+	padding-left: 60px;
+	padding-right: 60px;
 	text-align: center;
 	color: #fff;
     background-image: url('/image/img-touch/bg.jpg');
@@ -56,8 +59,6 @@ body {
 .section p {
 	margin: 0 0 15px 0;
 	font-size: 14px;
-	padding-left: 20px;
-	padding-right: 20px;
 }
 
 .section p:last-chilf {
@@ -65,7 +66,6 @@ body {
 }
 
 .slide {
-	padding: 0 60px;
 	color: white;
 }
 
@@ -97,19 +97,21 @@ body {
 	border-color: transparent #ffffff transparent transparent;
 }
 
+
 .header {
-	width: 100%;
-	padding: 15px;
 	position: fixed;
 	top: 0;
 	z-index: 1000;
 	background: #000000;
 	box-shadow: rgba(0, 0, 0, 1) 0 0 7px;
-	margin:auto;
+	margin:auto !important;
 	text-align:center;
 }
 
-.main-nav {}
+.main-nav {
+	margin:auto;
+	text-align:center;
+}
 
 .main-nav ul {
 	margin: 0 -10px;
@@ -174,7 +176,7 @@ input[type=text]{
 
 input, select, textarea{
     color: black;
-	width:80%;
+	width:60%;
 	border-radius: 4px;
 }
 
@@ -203,36 +205,26 @@ input[type=button], input[type=submit], input[type=reset] {
 	background-image: url('/image/img-touch/kleuren/geen_kleur2_m.png');
 }
 
-section{
-	width: 50%;
-	float: left;
-	margin:auto;
-	text-allign:center;
-}
-
-aside{
-	width:50%;
-	float:right;
-	margin: auto;
-	text-align:center;
-}
 
 img{
-    max-height: 100%;
-    max-width: 100%;
+	object-fit: cover !important;
 }
+
+
 
 .pijltje_next{
     margin:auto;
 	position: absolute;
-	bottom: 30px;
+	bottom: 60px !important;
 	overflow: hidden;
 }
 
 #fullpage{
 	background-color: black;
-	overflow: hidden;
-	overflow-y: hidden;
+}
+
+#zuil{
+	object-fit: cover;
 }
 
 
@@ -244,6 +236,9 @@ img{
 	margin: auto;
 	text-align: center;
 	background-repeat: no-repeat;
+	width:100%;
+	height:100%;
+	padding: 15px;
 
 
 	-webkit-animation: fadein 5s; /* Safari, Chrome and Opera > 12.1 */
@@ -285,6 +280,7 @@ img{
 
 
 
+
 /*#pijl-hoogte{*/
 	/*position:absolute;*/
 	/*top: 0px;*/
@@ -322,14 +318,7 @@ img{
 		font-size: 18px;
 	}
 
-	.header {
-		padding: 20px;
-	}
-
-	.main-nav a {
-		font-size: 18px;
-	}
-    .pijltje_next{
+   .pijltje_next{
         margin:auto;
         position: absolute;
         bottom: 20px;
@@ -339,112 +328,63 @@ img{
         max-height: 100%;
         max-width: 100%;
     }
+	section {
+		width: 100%;
+	}
+
+	aside {
+		width: 100%;
+	}
+
 }
 
-@media (max-width:1024px){
-	section{
-		width:100%;
-	}
-	aside{
-		width:100%;
-	}
-	.section p {
-		margin: 0 0 15px 0;
-		font-size: 14px;
-		padding-left: 10px;
-		padding-right: 10px;
-	}
 
-	.header {
-		padding: 20px;
-	}
-
-    #intro{
-        height: 90%;
-        width: 100%;
-    }
-
-	img{
-		max-height: 100%;
-
-	}
-
-    #zuil{
-        height: 450px;
-    }
-
-    #title{
-        width: 320px;
-    }
-
-
-	.pijltje_next{
-        margin:auto;
-		position: absolute;
-		bottom: 20px;
-		overflow: hidden;
-	}
-    #zuil{
-        max-height:500px;
-    }
-
-    #title{
-        width:320px;
-    }
-
-
-}
 
 @media (min-width: 768px) {
-	.navbar .navbar-nav {
-		display: inline-block;
-		float: none;
-		vertical-align: top;
+
+	section {
+		width: 100%;
 	}
 
-	.navbar .navbar-collapse {
-		display: inline-block;
-		text-align: center;
+	aside {
+		width: 100%;
 	}
-    #intro{
-        max-height: 100%;
-        max-width: 100%;
-    }
-
-
 }
 @media only screen
 and (min-device-width : 768px)
 and (max-device-width : 1024px)
 and (orientation : landscape)
 and (-webkit-min-device-pixel-ratio: 2) {
-    #zuil{
-        max-height:700px;
-    }
+	#zuil {
+		height: 500px;
+	}
 
-    #title{
-        max-width:320px;
-    }
+	#title {
+		max-width: 320px;
+	}
 
-    #intro{
-        max-height: 100%;
-        max-width: 100%;
-    }
+	#intro {
+		max-height: 100%;
+		max-width: 100%;
+	}
 
-    img{
-        max-height: 100%;
-        max-width: 100%;
-    }
-    .navbar .navbar-nav {
-        display: inline-block;
-        float: none;
-        vertical-align: top;
-    }
+	img {
+		max-height: 100%;
+		max-width: 100%;
+	}
 
-    .navbar .navbar-collapse {
-        display: inline-block;
-        text-align: center;
-    }
+	.section {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+
+	section {
+		width: 100%;
+	}
+
+	aside {
+		width: 100%;
+	}
 }
 
 
