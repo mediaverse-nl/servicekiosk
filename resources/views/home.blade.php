@@ -7,7 +7,7 @@
 
 
     <div id="fullpage">
-        <div class="section section-one">
+        <div class="section section-one" data-anchor="introductie">
 
             <div id="intro">
                 <div id="titel"><img src="/image/img-touch/title2.png"></div></br>
@@ -21,7 +21,7 @@
 
         </div>
 
-        <div class="section section-three">
+        <div class="section section-three" data-anchor="waarom">
             <h1>Waarom Touch & check</h1>
             <p>In onze omgeving hebben wij vaak situaties gezien of in situaties gezeten waarin wij zelf dachten: “Hier moet een logische en simpele oplossing voor zijn.” Een technische oplossing is in de eerste zin niet persé simpel, maar het resultaat wel. Wat wij willen bereiken met onze diensten en producten, is techniek creëren die het leven van de mens vergemakkelijkt. Het moet eenvoudig zijn en iedereen moet met de producten om kunnen gaan, zij het hardware- of software producten.
 
