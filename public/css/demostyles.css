@@ -1,0 +1,98 @@
+*{margin:0;padding:0;}
+body {
+  background: #111; 
+  font-family: 'Open Sans', sans-serif;    
+  color: #fff;   
+  overflow-x: hidden;    
+}
+
+h1, h2, h3{   
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 700; 
+    margin: .8em 0 .2em 0;
+}    
+h1{   
+ margin: .2em .5em;
+ display: inline-block;       
+}
+
+.content{
+    margin: 1em 2em;    
+}
+.content ul, .content ol{
+    margin: .8em 1em .8em 2em;   
+}
+span.code{
+    font-family: "Lucida Console", "Lucida Sans Typewriter", Monaco, "Bitstream Vera Sans Mono", monospace;   
+    color: #999;
+}
+.gist{
+    margin: 1em 1em 2em 2em;
+}
+ol .gist{
+    margin: 1em 0 2em 0;
+}
+a{ 
+    color:#fff;
+}
+.num2{
+    width: 400px;
+    margin: 2em auto;
+}
+
+@media screen and (max-width: 830px){
+    h1{
+     font-size: 1.3em;   
+    }
+    .desc{
+        display: none;   
+    }
+    .num2{
+        width: 330px;
+        margin: 2em auto;
+    }
+}
+
+@media screen and (max-width: 400px){
+    h1{
+     font-size: 1.1em;   
+    }
+    header span{
+        display: none;   
+    }
+    .gist{
+        width: 100%;
+    }
+    .num2{
+        width: 330px;
+        margin: 2em auto;
+    }
+}
+@media screen and (max-width: 320px){
+    h1{
+        font-size: 1.1em;
+    }
+    header span{
+        display: none;
+    }
+    .gist{
+        width: 100%;
+    }
+    .num2{
+        width: 270px;
+        margin: 2em auto;
+    }
+}
+
+@media screen and (max-width: 1024px){
+    .num2{
+        width: 350px;
+        margin: 2em auto;
+    }
+}
+@media screen and (max-width: 360px){
+    .num2{
+        width: 300px;
+        margin: 2em auto;
+    }
+}
