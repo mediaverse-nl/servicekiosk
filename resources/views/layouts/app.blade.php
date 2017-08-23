@@ -267,7 +267,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('/js/scripts.js') }}"></script>
-    <script src="{{ asset('/js/jquery.fullpage.min.js.js') }}"></script>
+    <script src="{{ asset('/js/jquery.fullpage.min.js') }}"></script>
     <script src="{{ asset('/js/app.js') }}"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 

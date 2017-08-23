@@ -7,7 +7,7 @@
 
 
     <div id="fullpage">
-        <div class="section section-one" data-anchor="introductie">
+        <div class="section section-one" anchor="_introductie">
 
             <div id="intro">
                 <div id="titel"><img data-src="/image/img-touch/title2.png"></div></br>
@@ -125,7 +125,7 @@
 
         </div>
 
-        <div class="section section-three" data-anchor="waarom">
+        <div class="section section-three" anchor="_waarom">
             <div class="tekst_waarom">
             <h1>Waarom Touch & check</h1>
             <p>In onze omgeving hebben wij vaak situaties gezien of in situaties gezeten waarin wij zelf dachten: “Hier moet een logische en simpele oplossing voor zijn.” Een technische oplossing is in de eerste zin niet persé simpel, maar het resultaat wel. Wat wij willen bereiken met onze diensten en producten, is techniek creëren die het leven van de mens vergemakkelijkt. Het moet eenvoudig zijn en iedereen moet met de producten om kunnen gaan, zij het hardware- of software producten.
@@ -137,7 +137,7 @@
         </div>
         </div>
 
-        <div class="section section-two">
+        <div class="section section-two" anchor="_intenties">
             <div class="slide slide-one">
                 <h1>Snellere service</h1>
 
@@ -183,7 +183,7 @@
 
 
 
-        <div class="section section-two">
+        <div class="section section-two" anchor="_dimensies">
 
                 <h1>Dimensies</h1>
 
@@ -211,7 +211,7 @@
             {{--<a href="#fourthSection"><img class="pijltje_next" data-src="/image/img-touch/pijltje_page_down.png" ></a>--}}
         </div>
 
-        <div class="section section-two">
+        <div class="section section-two" anchor="_usp">
             <div id="usp">
                 <div class="slide slide-one">
                     <h1>100% NL</h1>
@@ -248,7 +248,7 @@
             </div>
         </div>
 
-        <div class="section section-two">
+        <div class="section section-two" anchor="_brac">
             <div id="branches">
                 <div class="slide slide-one">
                     <h1>Primera</h1>
@@ -438,14 +438,6 @@
 
 
 
-    <script>
-        $(document).ready(function(){
-            $('.slider-banner').slick({
-                dots: true
-            });
-    //            $('.slider-contact').focus();
-        });
-    </script>
 
 <script>
     var opts = {
@@ -466,30 +458,30 @@
     makeBSS('.num2', opts2);
 </script>
 
-{{--<script>--}}
-    {{--$(function() {--}}
-        {{--$('#slides').slidesjs({--}}
-            {{--width: 200,--}}
-            {{--height: 300,--}}
-            {{--navigation: {--}}
-                {{--effect: "fade"--}}
-            {{--},--}}
-            {{--effect: {--}}
-                {{--fade: {--}}
-                    {{--speed: 400--}}
-                {{--}--}}
-            {{--}--}}
-        {{--});--}}
-    {{--});--}}
-{{--</script>--}}
-{{--<script>--}}
-    {{--$(function(){--}}
-        {{--$("#slides").slidesjs({--}}
-            {{--pagination: false,--}}
-            {{--generatePagination: false--}}
-        {{--});--}}
-    {{--});--}}
-{{--</script>--}}
+<script>
+    $(function() {
+        $('#slides').slidesjs({
+            width: 200,
+            height: 300,
+            navigation: {
+                effect: "fade"
+            },
+            effect: {
+                fade: {
+                    speed: 400
+                }
+            }
+        });
+    });
+</script>
+<script>
+    $(function(){
+        $("#slides").slidesjs({
+            pagination: false,
+            generatePagination: false
+        });
+    });
+</script>
 
 <script>
     function myMap() {
