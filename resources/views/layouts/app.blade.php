@@ -116,7 +116,7 @@
         ]) !!};
     </script>
 </head>
-<body>
+<body onload="myFunction()" style="margin:0;" >
 <header>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
@@ -272,6 +272,18 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     @stack('js')
+<script>
+    var myVar;
+
+    function myFunction() {
+        myVar = setTimeout(showPage, 3000);
+    }
+
+    function showPage() {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("fullpage").style.display = "block";
+    }
+</script>
 
 </body>
 </html>

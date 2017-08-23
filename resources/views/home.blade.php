@@ -5,8 +5,8 @@
 @section('content')
 
 
-
-    <div id="fullpage">
+    <div id="loader"></div>
+    <div id="fullpage" style="display:none;">
         <div class="section section-one" anchor="_introductie">
 
             <div id="intro">
@@ -382,6 +382,7 @@
 
 
 
+
 @endsection
 
 @push('css')
@@ -393,35 +394,6 @@
 <link rel="stylesheet" href="/css/demostyles.css">
 <link rel="stylesheet" href="/css/simple-slideshow-styles.css">
 
-    <style>
-        .slider-banner{
-            margin-top: -25px;
-            overflow:hidden !important;
-
-        }
-        .slider-contact{
-            height: 200px !important;
-            background-color: #2ab27b;
-            /*z-index: 1;*/
-        }
-        .slider-banner > div {
-            /*height: auto;*/
-        }
-        .slick-next{
-            right: 30px;
-        }
-        .slick-prev{
-            left: 10px;
-        }
-        .slick-prev:before, .slick-next:before{
-            color: white;
-            font-size: 40px;
-        }
-        .slick-arrow{
-            z-index: 999 !important;
-        }
-
-    </style>
 @endpush
 
 @push('js')
@@ -437,7 +409,7 @@
 
 
 
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC0vHSxLEoBqDOZYurlLBPo2yeEAplGak&callback=myMap"></script>
 
 <script>
     var opts = {
@@ -458,30 +430,30 @@
     makeBSS('.num2', opts2);
 </script>
 
-<script>
-    $(function() {
-        $('#slides').slidesjs({
-            width: 200,
-            height: 300,
-            navigation: {
-                effect: "fade"
-            },
-            effect: {
-                fade: {
-                    speed: 400
-                }
-            }
-        });
-    });
-</script>
-<script>
-    $(function(){
-        $("#slides").slidesjs({
-            pagination: false,
-            generatePagination: false
-        });
-    });
-</script>
+{{--<script>--}}
+    {{--$(function() {--}}
+        {{--$('#slides').slidesjs({--}}
+            {{--width: 200,--}}
+            {{--height: 300,--}}
+            {{--navigation: {--}}
+                {{--effect: "fade"--}}
+            {{--},--}}
+            {{--effect: {--}}
+                {{--fade: {--}}
+                    {{--speed: 400--}}
+                {{--}--}}
+            {{--}--}}
+        {{--});--}}
+    {{--});--}}
+{{--</script>--}}
+{{--<script>--}}
+    {{--$(function(){--}}
+        {{--$("#slides").slidesjs({--}}
+            {{--pagination: false,--}}
+            {{--generatePagination: false--}}
+        {{--});--}}
+    {{--});--}}
+{{--</script>--}}
 
 <script>
     function myMap() {
@@ -495,6 +467,13 @@
         });
         marker.setMap(map);
     }
+</script>
+
+<script>
+    google.maps.event.addListener(map, "idle", function ()
+    {
+        google.maps.event.trigger(map, 'resize');
+    });
 </script>
 
 <script>
